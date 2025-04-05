@@ -1,7 +1,6 @@
 ### 🙋About me
 
-Hello, this is Reese. 
-
+Hello, this is Reese.
 
 ### 🛠️Languages and Tools
 
@@ -12,7 +11,6 @@ Hello, this is Reese.
     <img src="https://raw.githubusercontent.com/imReese/imReese/main/img/git.svg" alt="git">
     <img src="https://raw.githubusercontent.com/imReese/imReese/main/img/VS%20Code.svg" alt="vscode">
 </div>
-
 
 ### 📫Connect with me
 
@@ -30,7 +28,6 @@ Hello, this is Reese.
     <img src="https://img.shields.io/badge/微信-ddddd?style=for-the-badge&logo=wechat&logoColor=white">
   </a>
 </div>
-
 
 ### 👨‍💻My GitHub Contributions
 

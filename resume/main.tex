@@ -1,0 +1,88 @@
+\documentclass{resume}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\name{ 段冰 }
+\phone{ +86 18510840710 }
+\email{ reese\_duan@163.com }   % _在latex中表示角标 注意使用\反义
+\link{ https://github.com/imReese }
+\linkname{ Github/imReese }   % 可以自定义也可以同\link
+\photo{ reese.png }
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+\noindent\textbf{求职目标：软件开发工程师或后端开发工程师}
+
+\begin{EducationSection}
+  \begineducationitem
+    { 南京大学 }
+    { 2017.09 -- 2021.06 }
+    { 学士 环境工程}
+    {GPA: 4.2/5.0 }
+    \item 核心课程: 计算机组成原理、数据结构、操作系统、计算机网络、计算机体系结构
+    \item 相关课程: 线性代数、概率论与数理统计、算法设计与分析
+  \endeducationitem
+\end{EducationSection}
+
+\begin{WorkExperienceSection}
+  \beginworkitem
+    { 华为云计算公司 - 竖亥lab }
+    { 2023.07 - 2024.07 }
+    { 计算体系结构研究工程师 }
+    \item \textbf{研究方向：CPU微架构性能优化与指令流分析}
+    \item \textbf{微架构指标采集工具开发：}基于Perf及Intel Pin工具链，设计并实现低开销指令流采集工具，覆盖MySQL、Redis等云服务关键组件，支持每秒百万级指令采样，为性能瓶颈分析提供核心数据支撑。
+    \item \textbf{TLB调度策略创新：}通过指令流特征分析，提出新型TLB动态调度算法，在ChampSim仿真器中实现并验证，单核场景tlb命中率提高30\%，IPC提高6\%，相关方案已申请发明专利。
+    \item \textbf{跨团队协作优化验证：}协助海思、欧拉团队进行SMT多线程优化策略在鲲鹏新一代 CPU 的落地验证，通过指令级并行度分析推动硬件微码更新，单核吞吐量提升8\%。
+  \endworkitem
+
+  \beginworkitem
+    { 华为数据存储产品线 - 基础设施开发部 }
+    { 2022.05 - 2023.07 }
+    { 软件开发工程师 }
+    \item \textbf{核心领域：分布式系统高可用与集群管理}
+    \item \textbf{集群管理模块模块功能迭代：}负责基于Paxos算法的分布式多节点集群管理模块，包括自选主及客户端选主
+    \item \textbf{集群规模扩展优化：}重构集群管理组件通信模型，通过异步消息队列+模块间进一步解耦合，单集群支持节点数从128提升至256，资源初始化效率提升40\%。
+    \item \textbf{高可靠性与安全性加固：}\par
+    \hspace{1.8em} 主导模块白盒测试体系搭建，基于 DTFuzz 框架完成200+接口自动化测试，分支覆盖率90\%+，提前拦截5类潜在缺陷；\par
+    \hspace{1.8em} 设计模块间参数安全拦截机制，通过输入过滤 + 沙箱隔离阻断命令注入攻击，漏洞风险降低70\%；\par
+    \hspace{1.8em} 解决20+现网高优先级问题并发布补丁版本，现网故障率下降35\%。\par
+  \endworkitem
+\end{WorkExperienceSection}
+
+\begin{ProjectSection}
+  \beginprojectitem
+    { Leetcode 自动化管理刷题工具 }
+    { C++, python3 }
+    { https://github.com/imReese/leetcode-solutions }
+    { 2025.02 -- 至今 }
+    \item 实现 Leetcode 题目自动解析，自动生成题目描述、代码、测试用例
+    \item 结合 Github Actions 实现解题数据更新并生成导航页面
+  \endprojectitem
+
+  \beginprojectitem
+    { C++ 轻量级 Web 服务器 }
+    { C++, C }
+    { https://github.com/imReese/tiny-webserver }
+    { 2021.12 -- 2022.03 }
+    \item 使用线程池 + 非阻塞 socket + epoll + 事件处理的并发模型
+    \item 使用状态机解析 HTTP 请求报文，支持解析 GET 和 POST 请求
+    \item 访问服务器数据库实现 web 端用户注册、登录功能，可以请求服务器图片和视频文件
+    \item 实现同步/异步日志系统，记录服务器运行状态
+  \endprojectitem
+
+\end{ProjectSection}
+
+\begin{SkillsSection}
+  { 熟练掌握数据结构与算法，熟悉 Git 版本控制工具和 Linux 命令}
+  \item \textbf{ 编程语言：} C/C++, python3, shell, LaTeX
+  \item \textbf{ 工具框架：} Linux, Git, Docker, perf, gdb, vim, Makefile, CMake
+\end{SkillsSection}
+
+\begin{InterestsSection}
+  { 马拉松、健身、篮球、网球 }
+\end{InterestsSection}
+
+\end{CJK}
+\end{document}
