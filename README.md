@@ -1,11 +1,11 @@
 <div align="center">
 
   <a href="https://github.com/imReese">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=89B4FA&center=true&vCenter=true&width=620&lines=Hi,+I'm+Reese;SGLang+Rust+Runtime;Backend+%2F+Distributed+Systems;Rust+%7C+C%2B%2B+%7C+Go+%7C+Python+%7C+Linux" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=89B4FA&center=true&vCenter=true&width=620&lines=Hi,+I'm+Reese;Inference+Engine+Performance;LLM+Serving+%2F+Backend+Systems;Rust+%7C+C%2B%2B+%7C+Go+%7C+Python+%7C+Linux" alt="Typing SVG" />
   </a>
 
   <p>
-    Backend systems engineer in Beijing, currently working on SGLang Rust runtime infrastructure for LLM serving.
+    Backend systems engineer in Beijing, currently working on inference engine performance and heterogeneous accelerator optimization for large-model serving.
   </p>
 
   <p>
@@ -27,18 +27,20 @@
 
 ### Current Focus
 
-- Building Rust-side runtime boundaries for SGLang: request lifecycle, router/gRPC protocol, scheduler, tokenizer edges, prefix cache, and model-executor batch interfaces.
-- Exploring PD disaggregation paths around KV transfer planning, descriptor checksums, KV-ready predicates, and Mooncake-backed transfer boundaries.
-- Keeping kernel execution behind portable backend boundaries for CUDA, CPU, Metal, ROCm, and MUSA directions.
+- Working on inference engine performance for large-model serving at Baidu AI Computing Department.
+- Optimizing runtime and backend paths across NVIDIA GPUs and Kunlunxin P-series accelerators.
+- Investigating bottlenecks across kernels, operators, scheduling, memory behavior, and execution paths.
+- Continuing SGLang Rust runtime exploration around request lifecycle, scheduler/router boundaries, KV cache, and PD-style transfer planning.
 
 ### Systems Background
 
 - Distributed storage: high-availability cluster management, leader election, Paxos-based coordination, async initialization queues, and production fault handling.
-- Performance engineering: Linux perf, Intel Pin instruction-flow tracing, ChampSim validation, TLB scheduling, IPC analysis, and CPU workload tuning.
+- Performance engineering: inference engine profiling, heterogeneous accelerator optimization, Linux perf, Intel Pin instruction-flow tracing, ChampSim validation, TLB scheduling, IPC analysis, and CPU workload tuning.
 - Product hardening: DTFuzz coverage for storage interfaces, command-injection mitigation, sandboxed execution paths, and operational reliability fixes.
 
 ### Selected Work
 
+- **Inference Engine Optimization**: large-model serving performance work across runtime paths, backend execution, NVIDIA GPUs, and Kunlunxin P-series accelerators.
 - **SGLang Rust Runtime**: Rust-first LLM serving runtime experiments for router, scheduler, protocol, tokenizer, cache, worker, and PD KV-transfer boundaries.
 - **Lightweight C++ Web Server**: thread pool, non-blocking sockets, epoll, HTTP state machine, MySQL login/register flow, and sync/async logging.
 - **LeetCode Automation Manager**: parses problems, generates descriptions, code templates, tests, and GitHub Actions workflows for algorithm practice.
