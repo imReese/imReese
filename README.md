@@ -5,7 +5,7 @@
   </a>
 
   <p>
-    Backend systems engineer in Shenzhen, currently working on SGLang Rust runtime infrastructure for LLM serving.
+    Backend systems engineer in Beijing, currently working on SGLang Rust runtime infrastructure for LLM serving.
   </p>
 
   <p>
