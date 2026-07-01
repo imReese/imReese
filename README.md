@@ -1,48 +1,65 @@
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img
+      src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2600&pause=900&color=4F8CC9&center=true&vCenter=true&width=860&lines=LLM+serving+systems;KV+cache+behavior+and+runtime+boundaries;Mooncake+TransferEngine+and+SGLang+paths;Backend+performance+on+heterogeneous+accelerators"
+      alt="Typing animation: LLM serving systems, KV cache behavior, Mooncake TransferEngine, SGLang paths, and heterogeneous accelerators"
+    />
+  </a>
+</p>
+
 # Reese
 
-Systems engineer focused on large-model inference serving, cache behavior, and backend performance.
+I build backend and inference-serving systems where runtime boundaries, cache
+behavior, and accelerator backends matter.
 
-Beijing | Baidu AI Computing | Inference engine performance
+Beijing, China | Baidu AI Computing | Large-model inference engines
 
-I work on the execution path behind LLM serving: request lifecycle, scheduler and router boundaries, prefix/KV-cache behavior, KV transfer readiness, and heterogeneous accelerator backends across NVIDIA GPUs and Kunlunxin P-series devices.
-
-## Current Work
-
-**Baidu AI Computing | 2025.06 - Present**
+## Now
 
 - Improving inference engine performance for large-model serving.
-- Studying SGLang-style runtime paths across request intake, scheduling, prefill/decode execution, and backend dispatch.
-- Analyzing prefix cache, KV-cache lifecycle, residency, hit behavior, memory pressure, and serving stability.
-- Working through Mooncake TransferEngine integration points: KV transfer planning, descriptor/checksum paths, readiness checks, and runtime boundaries.
+- Tracing request lifecycle, scheduler/router boundaries, prefix cache, and
+  KV-cache behavior across prefill/decode paths.
+- Studying Mooncake TransferEngine integration points: KV transfer planning,
+  descriptor/checksum paths, readiness checks, and runtime boundaries.
 - Tuning backend paths across NVIDIA GPUs and Kunlunxin P-series accelerators.
 
-## Systems Background
+## Focus
 
-- **Huawei Cloud**: CPU architecture performance analysis, workload profiling, IPC/TLB behavior, Intel Pin tracing, ChampSim validation, and Linux perf workflows.
-- **Huawei Data Storage**: distributed storage systems, high-availability cluster management, leader election, Paxos-based coordination, async initialization, fault handling, and reliability fixes.
-- **Security and hardening**: DTFuzz coverage for storage interfaces, command-injection mitigation, sandboxed execution paths, and production-oriented robustness work.
+```text
+Runtime      SGLang-style request lifecycle, scheduler/router boundaries
+Memory       prefix cache, KV cache, residency, hit behavior, pressure
+Transfer     Mooncake TransferEngine, KV transfer planning, readiness checks
+Backends     NVIDIA GPUs, Kunlunxin P-series, heterogeneous accelerator paths
+Systems      Rust, C/C++, Go, Linux, epoll, Paxos, Docker, Kubernetes
+Tooling      perf, tracing, benchmarking, CI, observability, hardening
+```
 
 ## Selected Work
 
-- **Inference engine optimization**: runtime paths, cache/KV behavior, backend execution, NVIDIA GPU paths, and Kunlunxin P-series accelerator support.
-- **Mooncake TransferEngine notes**: architecture reading notes around Store dataflow, Transfer Engine, KV transfer planning, descriptors, and SGLang/vLLM/LMCache integration paths.
-- **SGLang Rust runtime exploration**: Rust-first LLM serving experiments around router, scheduler, protocol, tokenizer, cache, worker, and PD-style KV-transfer boundaries.
-- **Lightweight C++ web server**: non-blocking sockets, epoll, HTTP state machine, thread pool, MySQL login/register flow, and sync/async logging.
-- **LeetCode automation manager**: problem parsing, description generation, code templates, test generation, and GitHub Actions workflows for algorithm practice.
+- [SGLang Rust runtime exploration](https://github.com/imReese/sglang-rs) -
+  Rust-first LLM serving experiments around router, scheduler, protocol,
+  tokenizer, cache, worker, and PD-style KV-transfer boundaries.
+- [Mooncake TransferEngine reading notes](https://imreese.github.io/blogs/mooncake-transfer-engine-reading-notes) -
+  architecture notes around Store dataflow, Transfer Engine, KV transfer
+  planning, descriptors, and SGLang/vLLM/LMCache integration paths.
+- [Personal homepage](https://imreese.github.io/) - projects, blogs, about
+  page, and longer-form engineering notes.
 
-## Technical Focus
+## Stack
 
-```text
-Runtime     SGLang, request lifecycle, scheduler/router boundaries, prefill/decode
-Memory      prefix cache, KV cache, residency, hit behavior, cache pressure
-Transfer    Mooncake TransferEngine, KV transfer planning, readiness checks
-Backends    NVIDIA GPUs, Kunlunxin P-series, heterogeneous accelerator paths
-Systems     Rust, C/C++, Go, Linux, epoll, Paxos, Docker, Kubernetes
-Tooling     perf, tracing, benchmarking, CI, observability, reliability hardening
-```
+<p>
+  <img src="img/Python.svg" alt="Python" height="34" />
+  <img src="img/C.svg" alt="C and C++" height="34" />
+  <img src="img/Docker.svg" alt="Docker" height="34" />
+  <img src="img/git.svg" alt="Git" height="34" />
+  <img src="img/VS Code.svg" alt="VS Code" height="34" />
+</p>
 
-## Links
+`Rust` | `C/C++` | `Go` | `Python` | `Linux` | `SGLang` | `KV Cache` |
+`Mooncake TE` | `gRPC` | `Docker` | `Kubernetes` | `perf`
 
-- Website: [imreese.github.io](https://imreese.github.io)
-- Notes: [Mooncake Transfer Engine reading notes](https://imreese.github.io/blogs/mooncake-transfer-engine-reading-notes)
+## Elsewhere
+
+- Website: [imreese.github.io](https://imreese.github.io/)
+- Blogs: [Engineering notes and field logs](https://imreese.github.io/blogs)
 - Email: [reese_duan@outlook.com](mailto:reese_duan@outlook.com)
