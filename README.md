@@ -18,50 +18,18 @@
   </a>
 </p>
 
-## 🛰️ Current coordinates
-
-<a href="https://github.com/imReese">
-  <img
-    align="right"
-    width="170"
-    src="https://octodex.github.com/images/Robotocat.png"
-    alt="GitHub Robotocat"
-  />
-</a>
+## About
 
 I'm a software engineer in **Baidu AI Computing's Training & Inference Engine
 Team**, supporting enterprise SGLang deployment across **10k-accelerator
 clusters**.
 
-- 🚀 **Scale** — production inference serving across large accelerator fleets
-- ⚙️ **Runtime** — scheduling, batching, prefill/decode, and backend execution
-- 🧠 **Memory** — prefix cache, KV cache, residency, and memory hierarchy
-- 🔄 **Transfer** — PD disaggregation, KV movement, and Mooncake TransferEngine
-- 🔎 **Reliability** — profiling, observability, fault diagnosis, and validation
+My work spans runtime scheduling, prefill/decode execution, KV Cache, PD
+disaggregation, Mooncake TransferEngine, and heterogeneous accelerator
+backends. I care about making serving systems fast, observable, and reliable at
+scale.
 
-<br clear="right" />
-
-## 🗺️ Systems map
-
-```mermaid
-flowchart LR
-    Q[Requests] --> R[Router]
-    R --> S[Scheduler]
-    S --> P[Prefill]
-    S --> D[Decode]
-    P <--> K[KV Cache]
-    D <--> K
-    K <--> T[Mooncake TE]
-    P --> B[Accelerator Backends]
-    D --> B
-```
-
-The part I enjoy most is where these boxes stop behaving like separate
-subsystems: a scheduling decision changes cache residency, data movement shifts
-the latency profile, and backend details surface all the way up the request
-path.
-
-## 🧩 Selected systems
+## Selected work
 
 | Project | What it explores |
 | --- | --- |
@@ -69,14 +37,14 @@ path.
 | [**NexusKV**](https://github.com/imReese/NexusKV) | A KV cache platform separating control plane, data plane, state/index, and engine adapters across Go, Rust, and Python. |
 | [**imreese.github.io**](https://github.com/imReese/imReese.github.io) | My personal site and source-level engineering notes, built with Next.js and MDX. |
 
-## ✍️ Recent field notes
+## Recent notes
 
 - [SGLang v0.5.14 to Mooncake Store: page key, zero-copy, and shared TE](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
 - [SGLang HiCache read path: prefetch, load back, and scheduling boundaries](https://imreese.github.io/blogs/sglang-hicache-read-path/)
 - [SGLang HiCache write path: moving GPU KV to Host and Storage](https://imreese.github.io/blogs/sglang-hicache-write-path/)
 - [Mooncake Transfer Engine transport layer: TCP, RDMA, and device paths](https://imreese.github.io/blogs/mooncake-transfer-engine-transport-layer/)
 
-## 🧰 Toolbox
+## Toolbox
 
 <p align="center">
   <picture>
@@ -107,7 +75,7 @@ path.
   control-plane systems at Huawei Data Storage.
 </details>
 
-## 🐍 Contributions
+## Contributions
 
 <picture>
   <source
