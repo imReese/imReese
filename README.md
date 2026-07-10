@@ -50,15 +50,15 @@ scale.
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://skillicons.dev/icons?i=rust%2Ccpp%2Cgo%2Cpython%2Clinux%2Cdocker%2Ckubernetes%2Cgit&amp;theme=dark"
+      srcset="https://skillicons.dev/icons?i=cpp%2Cpython%2Cgo%2Clinux%2Cbash%2Cdocker%2Ckubernetes%2Cgit&amp;theme=dark"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="https://skillicons.dev/icons?i=rust%2Ccpp%2Cgo%2Cpython%2Clinux%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
+      srcset="https://skillicons.dev/icons?i=cpp%2Cpython%2Cgo%2Clinux%2Cbash%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
     />
     <img
-      src="https://skillicons.dev/icons?i=rust%2Ccpp%2Cgo%2Cpython%2Clinux%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
-      alt="Rust, C++, Go, Python, Linux, Docker, Kubernetes, and Git"
+      src="https://skillicons.dev/icons?i=cpp%2Cpython%2Cgo%2Clinux%2Cbash%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
+      alt="C++, Python, Go, Linux, Bash, Docker, Kubernetes, and Git"
     />
   </picture>
 </p>
