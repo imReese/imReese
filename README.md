@@ -1,49 +1,61 @@
 <p align="center">
   <a href="https://git.io/typing-svg">
     <img
-      src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2600&pause=900&color=4F8CC9&center=true&vCenter=true&width=860&lines=LLM+serving+systems;KV+cache+behavior+and+runtime+boundaries;Mooncake+TransferEngine+and+SGLang+paths;Backend+performance+on+heterogeneous+accelerators"
-      alt="Typing animation: LLM serving systems, KV cache behavior, Mooncake TransferEngine, SGLang paths, and heterogeneous accelerators"
+      src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2600&pause=900&color=4F8CC9&center=true&vCenter=true&width=860&lines=AI+infrastructure+for+large-model+serving;Enterprise+SGLang+at+10k-accelerator+scale;KV+cache+and+PD+disaggregation;Distributed+systems+and+heterogeneous+backends"
+      alt="Typing animation: AI infrastructure for large-model serving, enterprise SGLang at 10k-accelerator scale, KV cache, PD disaggregation, and heterogeneous backends"
     />
   </a>
 </p>
 
 # Reese
 
-I build backend and inference-serving systems where runtime boundaries, cache
-behavior, and accelerator backends matter.
+I build AI infrastructure for large-model serving, with a focus on production
+inference engines, distributed runtime systems, and performance at cluster
+scale.
 
-Beijing, China | Baidu AI Computing | Large-model inference engines
+Beijing, China | Baidu AI Computing · Training & Inference Engine Team |
+SGLang at 10k-accelerator scale
 
 ## Now
 
-- Improving inference engine performance for large-model serving.
-- Tracing request lifecycle, scheduler/router boundaries, prefix cache, and
-  KV-cache behavior across prefill/decode paths.
-- Studying Mooncake TransferEngine integration points: KV transfer planning,
-  descriptor/checksum paths, readiness checks, and runtime boundaries.
-- Tuning backend paths across NVIDIA GPUs and Kunlunxin P-series accelerators.
+- Supporting enterprise SGLang deployment across 10k-accelerator clusters.
+- Improving inference runtime performance across scheduling, batching,
+  prefill/decode execution, KV cache, and heterogeneous backend paths.
+- Working on PD disaggregation and KV movement through Mooncake
+  TransferEngine.
+- Diagnosing throughput, latency, memory, cache, and transfer bottlenecks in
+  production serving systems.
 
 ## Focus
 
 ```text
-Runtime      SGLang-style request lifecycle, scheduler/router boundaries
-Memory       prefix cache, KV cache, residency, hit behavior, pressure
-Transfer     Mooncake TransferEngine, KV transfer planning, readiness checks
-Backends     NVIDIA GPUs, Kunlunxin P-series, heterogeneous accelerator paths
-Systems      Rust, C/C++, Go, Linux, epoll, Paxos, Docker, Kubernetes
-Tooling      perf, tracing, benchmarking, CI, observability, hardening
+Serving      enterprise SGLang deployment at 10k-accelerator scale
+Runtime      request lifecycle, scheduling, batching, prefill/decode
+Memory       prefix cache, KV cache, residency, memory hierarchy
+Transfer     PD disaggregation, KV movement, Mooncake TransferEngine
+Backends     heterogeneous accelerator serving paths
+Reliability  profiling, observability, fault diagnosis, validation
 ```
+
+## Background
+
+Before Baidu, I worked on cloud workload characterization and CPU architecture
+at Huawei Cloud's Shuhai Lab, and on distributed-storage control-plane systems
+at Huawei Data Storage.
 
 ## Selected Work
 
-- [SGLang Rust runtime exploration](https://github.com/imReese/sglang-rs) -
-  Rust-first LLM serving experiments around router, scheduler, protocol,
-  tokenizer, cache, worker, and PD-style KV-transfer boundaries.
-- [Mooncake TransferEngine reading notes](https://imreese.github.io/blogs/mooncake-transfer-engine-reading-notes) -
-  architecture notes around Store dataflow, Transfer Engine, KV transfer
-  planning, descriptors, and SGLang/vLLM/LMCache integration paths.
-- [Personal homepage](https://imreese.github.io/) - projects, blogs, about
-  page, and longer-form engineering notes.
+- [sglang-rs](https://github.com/imReese/sglang-rs) - an independent Rust
+  runtime covering request lifecycle, gRPC routing, scheduling, prefix caching,
+  KV page allocation, and PD KV-transfer boundaries.
+- [NexusKV](https://github.com/imReese/NexusKV) - a KV cache platform that
+  separates control plane, data plane, state/index, and engine-adapter concerns
+  across Go, Rust, and Python.
+- [Engineering notes](https://imreese.github.io/blogs/) - source-level notes on
+  SGLang runtime, HiCache, Mooncake Store/TransferEngine, and distributed
+  systems.
+- [Personal homepage](https://imreese.github.io/) - projects, writing, and
+  background.
 
 ## Stack
 
@@ -61,5 +73,5 @@ Tooling      perf, tracing, benchmarking, CI, observability, hardening
 ## Elsewhere
 
 - Website: [imreese.github.io](https://imreese.github.io/)
-- Blogs: [Engineering notes and field logs](https://imreese.github.io/blogs)
+- Blogs: [Engineering notes](https://imreese.github.io/blogs/)
 - Email: [reese_duan@outlook.com](mailto:reese_duan@outlook.com)
