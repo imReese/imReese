@@ -82,14 +82,14 @@ path.
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://skillicons.dev/icons?i=rust,cpp,go,python,linux,docker,kubernetes,git&amp;theme=dark"
+      srcset="https://skillicons.dev/icons?i=rust%2Ccpp%2Cgo%2Cpython%2Clinux%2Cdocker%2Ckubernetes%2Cgit&amp;theme=dark"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="https://skillicons.dev/icons?i=rust,cpp,go,python,linux,docker,kubernetes,git&amp;theme=light"
+      srcset="https://skillicons.dev/icons?i=rust%2Ccpp%2Cgo%2Cpython%2Clinux%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
     />
     <img
-      src="https://skillicons.dev/icons?i=rust,cpp,go,python,linux,docker,kubernetes,git&amp;theme=light"
+      src="https://skillicons.dev/icons?i=rust%2Ccpp%2Cgo%2Cpython%2Clinux%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
       alt="Rust, C++, Go, Python, Linux, Docker, Kubernetes, and Git"
     />
   </picture>
