@@ -9,62 +9,36 @@
   </p>
 </div>
 
-<p align="center">
-  <a href="https://git.io/typing-svg">
-    <img
-      src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=600&amp;size=21&amp;duration=2600&amp;pause=900&amp;color=4F8CC9&amp;center=true&amp;vCenter=true&amp;width=780&amp;lines=SGLang+at+cluster+scale;Runtime+%7C+KV+Cache+%7C+PD+disaggregation;Fast+enough+to+benchmark.+Reliable+enough+to+serve."
-      alt="Typing animation: SGLang at cluster scale; runtime, KV cache, and PD disaggregation; fast enough to benchmark and reliable enough to serve"
-    />
-  </a>
-</p>
-
 ## About
 
-I'm a software engineer in **Baidu AI Computing's Training & Inference Engine
-Team**, supporting enterprise SGLang deployment across **10k-accelerator
-clusters**.
+I'm a software engineer on the **Training and Inference Engine team at Baidu AI
+Computing**, where I work on enterprise SGLang deployments on clusters with
+more than **10,000 accelerators**.
 
-My work spans runtime scheduling, prefill/decode execution, KV Cache, PD
-disaggregation, Mooncake TransferEngine, and heterogeneous accelerator
-backends. I care about making serving systems fast, observable, and reliable at
-scale.
+My work spans runtime scheduling, prefill and decode execution, KV cache
+management, prefill/decode disaggregation, Mooncake Transfer Engine, and
+heterogeneous accelerator backends. I focus on making serving systems fast,
+observable, and reliable at scale.
 
 ## Selected work
 
 | Project | What it explores |
 | --- | --- |
-| [**sglang-rs**](https://github.com/imReese/sglang-rs) | A Rust runtime covering request lifecycle, gRPC routing, scheduling, prefix caching, KV page allocation, and PD KV-transfer boundaries. |
-| [**NexusKV**](https://github.com/imReese/NexusKV) | A KV cache platform separating control plane, data plane, state/index, and engine adapters across Go, Rust, and Python. |
+| [**sglang-rs**](https://github.com/imReese/sglang-rs) | A Rust runtime covering the request lifecycle, gRPC routing, scheduling, prefix caching, KV page allocation, and KV transfer boundaries between prefill and decode. |
+| [**NexusKV**](https://github.com/imReese/NexusKV) | A KV cache platform separating the control plane, data plane, state management and indexing, and engine adapters across Go, Rust, and Python. |
 | [**imreese.github.io**](https://github.com/imReese/imReese.github.io) | My personal site and source-level engineering notes, built with Next.js and MDX. |
 
 ## Recent notes
 
-- [SGLang v0.5.14 to Mooncake Store: page key, zero-copy, and shared TE](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
-- [SGLang HiCache read path: prefetch, load back, and scheduling boundaries](https://imreese.github.io/blogs/sglang-hicache-read-path/)
-- [SGLang HiCache write path: moving GPU KV to Host and Storage](https://imreese.github.io/blogs/sglang-hicache-write-path/)
-- [Mooncake Transfer Engine transport layer: TCP, RDMA, and device paths](https://imreese.github.io/blogs/mooncake-transfer-engine-transport-layer/)
+- [Integrating SGLang v0.5.14 with Mooncake Store: page keys, zero-copy access, and a shared Transfer Engine](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
+- [Inside SGLang's HiCache read path: prefetching, restoration, and scheduling boundaries](https://imreese.github.io/blogs/sglang-hicache-read-path/)
+- [Inside SGLang's HiCache write path: moving GPU KV cache to host memory and storage](https://imreese.github.io/blogs/sglang-hicache-write-path/)
+- [Inside the Mooncake Transfer Engine transport layer: TCP, RDMA, and device paths](https://imreese.github.io/blogs/mooncake-transfer-engine-transport-layer/)
 
 ## Toolbox
 
 <p align="center">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://skillicons.dev/icons?i=cpp%2Cpython%2Cgo%2Clinux%2Cbash%2Cdocker%2Ckubernetes%2Cgit&amp;theme=dark"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://skillicons.dev/icons?i=cpp%2Cpython%2Cgo%2Clinux%2Cbash%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
-    />
-    <img
-      src="https://skillicons.dev/icons?i=cpp%2Cpython%2Cgo%2Clinux%2Cbash%2Cdocker%2Ckubernetes%2Cgit&amp;theme=light"
-      alt="C++, Python, Go, Linux, Bash, Docker, Kubernetes, and Git"
-    />
-  </picture>
-</p>
-
-<p align="center">
-  SGLang · KV Cache · Mooncake TE · gRPC · perf · tracing · benchmarking
+  C++ · Python · Go · Rust · Linux · Kubernetes · SGLang · KV cache · Mooncake Transfer Engine · gRPC
 </p>
 
 <details>
