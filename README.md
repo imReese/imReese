@@ -1,44 +1,97 @@
 <div align="center">
   <h1>Hi, I'm Reese.</h1>
   <p><strong>I work where inference engines meet real clusters.</strong></p>
-  <p>AI infrastructure · SGLang · distributed systems · performance engineering</p>
+  <p>AI infrastructure · inference systems · distributed runtime · performance engineering</p>
   <p>
-    <a href="https://imreese.github.io/">Website</a> ·
-    <a href="https://imreese.github.io/blogs/">Engineering notes</a> ·
-    <a href="mailto:reese_duan@outlook.com">Email</a>
+    <a href="https://imreese.github.io/"><img src="https://img.shields.io/badge/Website-imreese.github.io-89b4fa?style=flat&logo=google-chrome&logoColor=white&labelColor=1e1e2e" height="26" alt="Website" /></a>
+    <a href="https://imreese.github.io/blogs/"><img src="https://img.shields.io/badge/Notes-Engineering%20Blog-a6e3a1?style=flat&logo=hashnode&logoColor=white&labelColor=1e1e2e" height="26" alt="Blog" /></a>
+    <a href="mailto:reese_duan@outlook.com"><img src="https://img.shields.io/badge/Email-reese__duan%40outlook.com-cba6f7?style=flat&logo=microsoft-outlook&logoColor=white&labelColor=1e1e2e" height="26" alt="Email" /></a>
   </p>
 </div>
 
 ## About
 
-I'm a software engineer on the **Training and Inference Engine team at Baidu AI
-Computing**, where I work on enterprise SGLang deployments on clusters with
-more than **10,000 accelerators**.
+I'm a software engineer on the **Training and Inference Engine team at Baidu AI Computing**, working on enterprise-scale LLM inference deployments on clusters with more than **10,000 accelerators**.
 
-My work spans runtime scheduling, prefill and decode execution, KV cache
-management, prefill/decode disaggregation, Mooncake Transfer Engine, and
-heterogeneous accelerator backends. I focus on making serving systems fast,
-observable, and reliable at scale.
+My focus spans request & runtime scheduling, prefill/decode execution, KV cache management, P/D disaggregation, high-performance transfer engines, and heterogeneous accelerator backends — building systems that stay fast, observable, and reliable at extreme scale.
 
-## Selected work
+<details open>
+  <summary><strong>System Architecture & Placement Model</strong></summary>
+  <br/>
 
-| Project | What it explores |
-| --- | --- |
-| [**sglang-rs**](https://github.com/imReese/sglang-rs) | A Rust runtime covering the request lifecycle, gRPC routing, scheduling, prefix caching, KV page allocation, and KV transfer boundaries between prefill and decode. |
-| [**NexusKV**](https://github.com/imReese/NexusKV) | A KV cache platform separating the control plane, data plane, state management and indexing, and engine adapters across Go, Rust, and Python. |
-| [**imreese.github.io**](https://github.com/imReese/imReese.github.io) | My personal site and source-level engineering notes, built with Next.js and MDX. |
+```text
+                         Clients
+                            │ (OpenAI / Native Protocols)
+                            ▼
+┌───────────────────────────────────────────────────────────┐
+│                 Inference Frontend (Locus)                │
+│  Protocol · Templates · Tokenization · Tool/Reasoning IO  │
+└───────────────────────────┬───────────────────────────────┘
+                            │ token request
+                            ▼
+┌───────────────────────────────────────────────────────────┐
+│              Global Inference Planner (Locus)             │
+│  Load · Cache Locality · Topology · P/D Aware Placement   │
+└─────────────┬───────────────────────────────┬─────────────┘
+              │ placement plan                │ state plan
+              ▼                               ▼
+┌───────────────────────────┐   ┌───────────────────────────┐
+│     Inference Engines     │   │      KV & State Plane     │
+│  SGLang / vLLM / Run-rs   │◄─►│    NexusKV / Mooncake     │
+│  GPU Compute & Kernels    │   │ State Index · RDMA/TCP    │
+└───────────────────────────┘   └───────────────────────────┘
+```
+</details>
 
-## Recent notes
+## Selected Work
 
-- [Integrating SGLang v0.5.14 with Mooncake Store: page keys, zero-copy access, and a shared Transfer Engine](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
-- [Inside SGLang's HiCache read path: prefetching, restoration, and scheduling boundaries](https://imreese.github.io/blogs/sglang-hicache-read-path/)
-- [Inside SGLang's HiCache write path: moving GPU KV cache to host memory and storage](https://imreese.github.io/blogs/sglang-hicache-write-path/)
-- [Inside the Mooncake Transfer Engine transport layer: TCP, RDMA, and device paths](https://imreese.github.io/blogs/mooncake-transfer-engine-transport-layer/)
+> *Building modular, engine-neutral components across the modern LLM serving stack:*
+
+| Tier | Project | Focus & Highlights | Stack |
+| :--- | :--- | :--- | :--- |
+| **Control Plane** | [**Locus**](https://github.com/imReese/Locus) | Engine-neutral inference control plane for global compute and model-state placement across heterogeneous engines and state stores. | `Rust` `Axum` `Control-Plane` |
+| **State & Cache** | [**NexusKV**](https://github.com/imReese/NexusKV) | Disaggregated KV cache platform separating control plane, data plane, prefix reuse indexing, and engine adapters. | `Go` `Rust` `Python` |
+| **Engine Runtime** | [**sglang-rs**](https://github.com/imReese/sglang-rs) | Rust runtime exploring request lifecycle, gRPC routing, prefix caching, KV page allocation, and P/D KV transfer boundaries. | `Rust` `gRPC` `Runtime` |
+| **Engineering Notes** | [**imreese.github.io**](https://github.com/imReese/imReese.github.io) | Personal site and source-level systems engineering notes with interactive components and deep dives. | `Next.js` `React` `MDX` |
+
+## Recent Notes
+
+<!-- BLOG-POST-LIST:START -->
+- `[Prefix Cache]` [前缀缓存命中 50%，预填充为什么没有快 2 倍？](https://imreese.github.io/blogs/prefix-cache-prefill-speedup-is-not-2x/)
+- `[MLA / KDA]` [Kimi Linear 的 KDA 缓存：SGLang、vLLM 与 Mooncake Store 全链路](https://imreese.github.io/blogs/kimi-kda-cache-sglang-vllm-mooncake-store/)
+- `[Mooncake]` [SGLang v0.5.14 接入 Mooncake Store：缓存页标识、零拷贝与共享 Transfer Engine](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
+- `[HiCache]` [SGLang HiCache 读路径：预取、回载和调度流程](https://imreese.github.io/blogs/sglang-hicache-read-path/)
+- `[HiCache]` [SGLang HiCache 写路径：从 GPU KV Cache 到主机内存与存储](https://imreese.github.io/blogs/sglang-hicache-write-path/)
+<!-- BLOG-POST-LIST:END -->
 
 ## Toolbox
 
-<p align="center">
-  C++ · Python · Go · Rust · Linux · Kubernetes · SGLang · KV cache · Mooncake Transfer Engine · gRPC
+**AI Serving & Runtime**  
+<p>
+  <img src="https://img.shields.io/badge/Inference_Engines-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Engines" />
+  <img src="https://img.shields.io/badge/KV_Cache_Hierarchy-313244?style=flat&labelColor=313244&color=313244" height="26" alt="KV Cache Hierarchy" />
+  <img src="https://img.shields.io/badge/P%2FD_Disaggregation-313244?style=flat&labelColor=313244&color=313244" height="26" alt="P/D Disaggregation" />
+  <img src="https://img.shields.io/badge/MLA_%2F_KDA_State-313244?style=flat&labelColor=313244&color=313244" height="26" alt="MLA / KDA State" />
+  <img src="https://img.shields.io/badge/SGLang_%2F_vLLM-313244?style=flat&labelColor=313244&color=313244" height="26" alt="SGLang / vLLM" />
+</p>
+
+**Storage, Transfer & Infra**  
+<p>
+  <img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" />
+  <img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" />
+  <img src="https://img.shields.io/badge/gRPC-313244?style=flat&logo=grpc&logoColor=89dceb&labelColor=313244&color=313244" height="26" alt="gRPC" />
+  <img src="https://img.shields.io/badge/Linux_Kernel-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel" />
+  <img src="https://img.shields.io/badge/Kubernetes-313244?style=flat&logo=kubernetes&logoColor=74c7ec&labelColor=313244&color=313244" height="26" alt="Kubernetes" />
+  <img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" />
+</p>
+
+**Languages**  
+<p>
+  <img src="https://img.shields.io/badge/C%2B%2B-313244?style=flat&logo=c%2B%2B&logoColor=89b4fa&labelColor=313244&color=313244" height="26" alt="C++" />
+  <img src="https://img.shields.io/badge/Python-313244?style=flat&logo=python&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Python" />
+  <img src="https://img.shields.io/badge/Go-313244?style=flat&logo=go&logoColor=89dceb&labelColor=313244&color=313244" height="26" alt="Go" />
+  <img src="https://img.shields.io/badge/Rust-313244?style=flat&logo=rust&logoColor=fab387&labelColor=313244&color=313244" height="26" alt="Rust" />
+  <img src="https://img.shields.io/badge/Bash-313244?style=flat&logo=gnubash&logoColor=a6e3a1&labelColor=313244&color=313244" height="26" alt="Bash" />
 </p>
 
 <details>

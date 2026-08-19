@@ -1,0 +1,23 @@
+name: Latest Blog Posts
+
+on:
+  schedule:
+    # Run everyday at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-readme-with-blog:
+    name: Update this repo's README with latest blog posts
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull blog posts from RSS
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: "https://imreese.github.io/rss.xml"
+          max_post_count: 5
+          readme_path: "README.md"
