@@ -5,7 +5,7 @@
   <p>
     <a href="https://imreese.github.io/"><img src="https://img.shields.io/badge/Website-imreese.github.io-89b4fa?style=flat&logo=google-chrome&logoColor=white&labelColor=1e1e2e" height="26" alt="Website" /></a>
     <a href="https://imreese.github.io/blogs/"><img src="https://img.shields.io/badge/Notes-Engineering%20Blog-a6e3a1?style=flat&logo=hashnode&logoColor=white&labelColor=1e1e2e" height="26" alt="Blog" /></a>
-    <a href="mailto:reese_duan@outlook.com"><img src="https://img.shields.io/badge/Email-reese__duan%40outlook.com-cba6f7?style=flat&logo=microsoft-outlook&logoColor=white&labelColor=1e1e2e" height="26" alt="Email" /></a>
+    <a href="mailto:reese_duan@outlook.com"><img src="https://img.shields.io/badge/Email-reese__duan%40outlook.com-cba6f7?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNmZmZmZmYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIyLjUgNS41aC0xM2ExLjUgMS41IDAgMCAwLTEuNSAxLjV2MS4ybDggNC44IDgtNC44VjdhMS41IDEuNSAwIDAgMC0xLjUtMS41em0tMTQuNSA5LjhWMTdhMS41IDEuNSAwIDAgMCAxLjUgMS41aDEzYTEuNSAxLjUgMCAwIDAgMS41LTEuNXYtNy4ybC03LjUgNC41YTEgMSAwIDAgMS0xIDBMOCA5Ljh6bS0yLTkuM0gyQTEuNSAxLjUgMCAwIDAgLjUgNy41djlBMS41IDEuNSAwIDAgMCAyIDE4aDRWNnoiLz48L3N2Zz4=&labelColor=1e1e2e" height="26" alt="Email" /></a>
   </p>
 </div>
 
