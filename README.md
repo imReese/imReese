@@ -77,12 +77,12 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 
 **Storage, Transfer & Infra**  
 <p>
-  <img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" />
   <img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" />
   <img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" />
-  <img src="https://img.shields.io/badge/gRPC-313244?style=flat&logo=grpc&logoColor=89dceb&labelColor=313244&color=313244" height="26" alt="gRPC" />
-  <img src="https://img.shields.io/badge/Linux_Kernel_%26_perf-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel & perf" />
   <img src="https://img.shields.io/badge/Inference_Control_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Control Plane" />
+  <img src="https://img.shields.io/badge/Linux_Kernel_%26_perf-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel & perf" />
+  <img src="https://img.shields.io/badge/gRPC-313244?style=flat&logo=grpc&logoColor=89dceb&labelColor=313244&color=313244" height="26" alt="gRPC" />
+  <img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" />
 </p>
 
 **Languages**  
