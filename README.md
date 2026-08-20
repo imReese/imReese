@@ -70,17 +70,17 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 <p>
   <a href="https://github.com/sgl-project/sglang"><img src="https://img.shields.io/badge/SGLang-313244?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiM4OWI0ZmEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE3IDRIN2E1IDUgMCAwIDAtNSA1djFhNSA1IDAgMCAwIDUgNWgxMGEzIDMgMCAwIDEgMyAzdjFhMyAzIDAgMCAxLTMgM0g2YTMgMyAwIDAgMS0zLTNIMWE1IDUgMCAwIDAgNSA1aDExYTUgNSAwIDAgMCA1LTV2LTFhNSA1IDAgMCAwLTUtNUg3YTMgMyAwIDAgMS0zLTNWOWEzIDMgMCAwIDEgMy0zaDExYTMgMyAwIDAgMSAzIDNoMmE1IDUgMCAwIDAtNS01eiIvPjwvc3ZnPg==&labelColor=313244&color=313244" height="26" alt="SGLang" /></a>
   <a href="https://github.com/vllm-project/vllm"><img src="https://img.shields.io/badge/vLLM-313244?style=flat&logo=vllm&logoColor=fab387&labelColor=313244&color=313244" height="26" alt="vLLM" /></a>
-  <img src="https://img.shields.io/badge/Runtime_Scheduling-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Runtime Scheduling" />
-  <img src="https://img.shields.io/badge/P%2FD_Disaggregation-313244?style=flat&labelColor=313244&color=313244" height="26" alt="P/D Disaggregation" />
-  <img src="https://img.shields.io/badge/KV_Cache_Hierarchy-313244?style=flat&labelColor=313244&color=313244" height="26" alt="KV Cache Hierarchy" />
-  <img src="https://img.shields.io/badge/Prefix_Cache_%26_State_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Prefix Cache & State Plane" />
+  <a href="https://github.com/imReese/sglang-rs"><img src="https://img.shields.io/badge/Runtime_Scheduling-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Runtime Scheduling" /></a>
+  <a href="https://github.com/imReese/Locus"><img src="https://img.shields.io/badge/P%2FD_Disaggregation-313244?style=flat&labelColor=313244&color=313244" height="26" alt="P/D Disaggregation" /></a>
+  <a href="https://github.com/imReese/NexusKV"><img src="https://img.shields.io/badge/KV_Cache_Hierarchy-313244?style=flat&labelColor=313244&color=313244" height="26" alt="KV Cache Hierarchy" /></a>
+  <a href="https://imreese.github.io/blogs/prefix-cache-prefill-speedup-is-not-2x/"><img src="https://img.shields.io/badge/Prefix_Cache_%26_State_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Prefix Cache & State Plane" /></a>
 </p>
 
 **Storage, Transfer & Infra**  
 <p>
-  <img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" />
-  <img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" />
-  <img src="https://img.shields.io/badge/Inference_Control_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Control Plane" />
+  <a href="https://github.com/kvcache-ai/Mooncake"><img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" /></a>
+  <a href="https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/"><img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" /></a>
+  <a href="https://github.com/imReese/Locus"><img src="https://img.shields.io/badge/Inference_Control_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Control Plane" /></a>
   <a href="https://github.com/torvalds/linux"><img src="https://img.shields.io/badge/Linux_Kernel_%26_perf-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel & perf" /></a>
   <a href="https://github.com/grpc/grpc"><img src="https://img.shields.io/badge/gRPC-313244?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiM4OWRjZWIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDJMMy41IDYuOXYxMC4yTDEyIDIybDguNS00LjlWNi45TDEyIDJ6bTAgMi41bDYuMyAzLjYtNi4zIDMuNi02LjMtMy42IDYuMy0zLjZ6TTUuNSA4LjdsNS41IDMuMXY2LjdsLTUuNS0zLjJWOC43em0xMyA2LjZsLTUuNSAzLjJ2LTYuN2w1LjUtMy4xdjYuNnoiLz48L3N2Zz4=&labelColor=313244&color=313244" height="26" alt="gRPC" /></a>
   <a href="https://github.com/kvcache-ai/Mooncake"><img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNmOWUyYWYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNyIgY3k9IjEyIiByPSI0LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y5ZTJhZiIgc3Ryb2tlLXdpZHRoPSIxLjgiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMTIiIHI9IjIiIGZpbGw9IiNmOWUyYWYiLz48Y2lyY2xlIGN4PSIxNyIgY3k9IjEyIiByPSI0LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y5ZTJhZiIgc3Ryb2tlLXdpZHRoPSIxLjgiLz48Y2lyY2xlIGN4PSIxNyIgY3k9IjEyIiByPSIyIiBmaWxsPSIjZjllMmFmIi8+PC9zdmc+&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" /></a>
