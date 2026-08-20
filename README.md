@@ -11,11 +11,11 @@
 
 ## About
 
-I'm a software engineer on the **Training and Inference Engine team at Baidu AI Computing**, working on enterprise-scale LLM inference deployments on clusters with more than **10,000 accelerators**.
+I'm a software engineer on the **Training and Inference Engine team at Baidu AI Computing**, working on enterprise-scale LLM inference deployments.
 
 My focus spans request & runtime scheduling, prefill/decode execution, KV cache management, P/D disaggregation, high-performance transfer engines, and heterogeneous accelerator backends — building systems that stay fast, observable, and reliable at extreme scale.
 
-<details open>
+<details>
   <summary><strong>System Architecture & Placement Model</strong></summary>
   <br/>
 
@@ -68,21 +68,21 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 
 **AI Serving & Runtime**  
 <p>
-  <img src="https://img.shields.io/badge/Inference_Engines-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Engines" />
-  <img src="https://img.shields.io/badge/KV_Cache_Hierarchy-313244?style=flat&labelColor=313244&color=313244" height="26" alt="KV Cache Hierarchy" />
-  <img src="https://img.shields.io/badge/P%2FD_Disaggregation-313244?style=flat&labelColor=313244&color=313244" height="26" alt="P/D Disaggregation" />
-  <img src="https://img.shields.io/badge/MLA_%2F_KDA_State-313244?style=flat&labelColor=313244&color=313244" height="26" alt="MLA / KDA State" />
   <img src="https://img.shields.io/badge/SGLang_%2F_vLLM-313244?style=flat&labelColor=313244&color=313244" height="26" alt="SGLang / vLLM" />
+  <img src="https://img.shields.io/badge/Runtime_Scheduling-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Runtime Scheduling" />
+  <img src="https://img.shields.io/badge/P%2FD_Disaggregation-313244?style=flat&labelColor=313244&color=313244" height="26" alt="P/D Disaggregation" />
+  <img src="https://img.shields.io/badge/KV_Cache_Hierarchy-313244?style=flat&labelColor=313244&color=313244" height="26" alt="KV Cache Hierarchy" />
+  <img src="https://img.shields.io/badge/Prefix_Cache_%26_State_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Prefix Cache & State Plane" />
 </p>
 
 **Storage, Transfer & Infra**  
 <p>
+  <img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" />
   <img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" />
   <img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" />
   <img src="https://img.shields.io/badge/gRPC-313244?style=flat&logo=grpc&logoColor=89dceb&labelColor=313244&color=313244" height="26" alt="gRPC" />
-  <img src="https://img.shields.io/badge/Linux_Kernel-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel" />
-  <img src="https://img.shields.io/badge/Kubernetes-313244?style=flat&logo=kubernetes&logoColor=74c7ec&labelColor=313244&color=313244" height="26" alt="Kubernetes" />
-  <img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" />
+  <img src="https://img.shields.io/badge/Linux_Kernel_%26_perf-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel & perf" />
+  <img src="https://img.shields.io/badge/Inference_Control_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Control Plane" />
 </p>
 
 **Languages**  
