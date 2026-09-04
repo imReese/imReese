@@ -57,11 +57,11 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 ## Recent Notes
 
 <!-- BLOG-POST-LIST:START -->
+- [Rethinking the SGLang HiCache Boundary: From L2 Offload to a Cache Runtime](https://imreese.github.io/blogs/rethinking-sglang-hicache-runtime-boundary-en/)
+- [重新思考 SGLang HiCache 的边界：从 L2 卸载到 Cache Runtime](https://imreese.github.io/blogs/rethinking-sglang-hicache-runtime-boundary-zh/)
 - [前缀缓存命中 50%，预填充为什么没有快 2 倍？](https://imreese.github.io/blogs/prefix-cache-prefill-speedup-is-not-2x/)
 - [Kimi Linear 的 KDA 缓存：SGLang、vLLM 与 Mooncake Store 全链路](https://imreese.github.io/blogs/kimi-kda-cache-sglang-vllm-mooncake-store/)
 - [SGLang v0.5.14 接入 Mooncake Store：缓存页标识、零拷贝与共享 Transfer Engine](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
-- [SGLang HiCache 读路径：预取、回载和调度流程](https://imreese.github.io/blogs/sglang-hicache-read-path/)
-- [SGLang HiCache 写路径：GPU KV 如何写入主机内存和外部存储](https://imreese.github.io/blogs/sglang-hicache-write-path/)
 <!-- BLOG-POST-LIST:END -->
 
 ## Toolbox
