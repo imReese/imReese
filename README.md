@@ -17,7 +17,7 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 
 ## Selected Work
 
-> *Building modular, engine-neutral components across the modern LLM serving stack:*
+> *Building modular, engine-neutral components across inference systems, attention architectures, and runtime platforms:*
 
 <details>
   <summary><strong>System Architecture & Placement Model</strong></summary>
@@ -49,19 +49,21 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 
 | Tier | Project | Focus & Highlights | Stack |
 | :--- | :--- | :--- | :--- |
-| **Control Plane** | [**Locus**](https://github.com/imReese/Locus) | Engine-neutral inference control plane for global compute and model-state placement across heterogeneous engines and state stores. | `Rust` `Axum` `Control-Plane` |
+| **Control Plane** | [**Locus**](https://github.com/imReese/Locus) | Engine-neutral inference control plane for global compute and model-state placement across heterogeneous engines and state stores. | `Rust` `Axum` |
 | **State & Cache** | [**NexusKV**](https://github.com/imReese/NexusKV) | Disaggregated KV cache platform separating control plane, data plane, prefix reuse indexing, and engine adapters. | `Go` `Rust` `Python` |
-| **Engine Runtime** | [**sglang-rs**](https://github.com/imReese/sglang-rs) | Rust runtime exploring request lifecycle, gRPC routing, prefix caching, KV page allocation, and P/D KV transfer boundaries. | `Rust` `gRPC` `Runtime` |
+| **Engine Runtime** | [**sglang-rs**](https://github.com/imReese/sglang-rs) | Rust runtime exploring request lifecycle, gRPC routing, prefix caching, KV page allocation, and P/D KV transfer boundaries. | `Rust` `gRPC` |
+| **Attention & Kernels** | [**parallax-lab**](https://github.com/imReese/parallax-lab) | Hands-on experiments for evaluating attention architectures, associative recall benchmarks, and peak memory efficiency. | `PyTorch` `CUDA` `Python` |
+| **Quant Platform** | [**Karkinos**](https://github.com/imReese/Karkinos) | Local-first quantitative research and execution platform with reproducible backtesting, risk controls, and shadow validation. | `Python` `FastAPI` `React` `TypeScript` |
 | **Engineering Notes** | [**imreese.github.io**](https://github.com/imReese/imReese.github.io) | Personal site and source-level systems engineering notes with interactive components and deep dives. | `Next.js` `React` `MDX` |
 
 ## Recent Notes
 
 <!-- BLOG-POST-LIST:START -->
 - [Rethinking the SGLang HiCache Boundary: From L2 Offload to a Cache Runtime](https://imreese.github.io/blogs/rethinking-sglang-hicache-runtime-boundary-en/)
-- [重新思考 SGLang HiCache 的边界：从 L2 卸载到 Cache Runtime](https://imreese.github.io/blogs/rethinking-sglang-hicache-runtime-boundary-zh/)
 - [前缀缓存命中 50%，预填充为什么没有快 2 倍？](https://imreese.github.io/blogs/prefix-cache-prefill-speedup-is-not-2x/)
 - [Kimi Linear 的 KDA 缓存：SGLang、vLLM 与 Mooncake Store 全链路](https://imreese.github.io/blogs/kimi-kda-cache-sglang-vllm-mooncake-store/)
 - [SGLang v0.5.14 接入 Mooncake Store：缓存页标识、零拷贝与共享 Transfer Engine](https://imreese.github.io/blogs/sglang-to-mooncake-store-kv-cache-path/)
+- [SGLang HiCache 读路径：预取、回载和调度流程](https://imreese.github.io/blogs/sglang-hicache-read-path/)
 <!-- BLOG-POST-LIST:END -->
 
 ## Toolbox
@@ -78,12 +80,12 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
 
 **Storage, Transfer & Infra**  
 <p>
-  <img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" />
-  <img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" />
-  <img src="https://img.shields.io/badge/Inference_Control_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Control Plane" />
   <a href="https://perf.wiki.kernel.org/"><img src="https://img.shields.io/badge/Linux_Kernel_%26_perf-313244?style=flat&logo=linux&logoColor=f9e2af&labelColor=313244&color=313244" height="26" alt="Linux Kernel & perf" /></a>
   <a href="https://github.com/grpc/grpc"><img src="https://img.shields.io/badge/gRPC-313244?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiM4OWRjZWIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDJMMy41IDYuOXYxMC4yTDEyIDIybDguNS00LjlWNi45TDEyIDJ6bTAgMi41bDYuMyAzLjYtNi4zIDMuNi02LjMtMy42IDYuMy0zLjZ6TTUuNSA4LjdsNS41IDMuMXY2LjdsLTUuNS0zLjJWOC43em0xMyA2LjZsLTUuNSAzLjJ2LTYuN2w1LjUtMy4xdjYuNnoiLz48L3N2Zz4=&labelColor=313244&color=313244" height="26" alt="gRPC" /></a>
   <a href="https://github.com/kvcache-ai/Mooncake"><img src="https://img.shields.io/badge/Mooncake_Engine-313244?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNmOWUyYWYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNyIgY3k9IjEyIiByPSI0LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y5ZTJhZiIgc3Ryb2tlLXdpZHRoPSIxLjgiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMTIiIHI9IjIiIGZpbGw9IiNmOWUyYWYiLz48Y2lyY2xlIGN4PSIxNyIgY3k9IjEyIiByPSI0LjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y5ZTJhZiIgc3Ryb2tlLXdpZHRoPSIxLjgiLz48Y2lyY2xlIGN4PSIxNyIgY3k9IjEyIiByPSIyIiBmaWxsPSIjZjllMmFmIi8+PC9zdmc+&labelColor=313244&color=313244" height="26" alt="Mooncake Engine" /></a>
+  <img src="https://img.shields.io/badge/RDMA_%2F_RoCE-313244?style=flat&labelColor=313244&color=313244" height="26" alt="RDMA / RoCE" />
+  <img src="https://img.shields.io/badge/Zero--Copy_I%2FO-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Zero-Copy I/O" />
+  <img src="https://img.shields.io/badge/Inference_Control_Plane-313244?style=flat&labelColor=313244&color=313244" height="26" alt="Inference Control Plane" />
 </p>
 
 **Languages**  
