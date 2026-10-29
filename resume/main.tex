@@ -31,25 +31,36 @@
 \vspace{6pt}
 \textbf{求职方向}\quad AI Infra / 大模型推理系统\par
 \vspace{4pt}
-聚焦大模型推理系统与性能优化，涵盖运行时调度、状态存储与复用，以及并行执行和传输协同；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
+专注大模型推理系统开发与生产环境性能优化，覆盖多模型接入、缓存子系统建设与运行时调度；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
 
 \cvsection{工作经历}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
-负责 SGLang 生产级部署与工程化，支撑大规模集群推理服务；完善引擎可观测性接口，定位并解决核心稳定性问题。
+负责百度智能云千帆 MaaS 的推理引擎开发与性能优化，以及 SGLang 的生产部署与工程化，支撑多模型在线推理服务。
+\vspace{5pt}\par
+\textbf{多模型接入与生产稳定性}\par
 \begin{itemize}
-\item \lead{缓存索引与存储子系统}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成 AS 存储子系统；修复多并行、多模态场景的稳定性问题。
-\item \lead{模型适配与并行部署}完成 Kimi 系列引擎适配，处理 PP 部署适配与稳定性问题；支撑 GLM、DeepSeek 系列落地与精度验证。团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
-\item \lead{缓存读写与复用收益}优化 Attention Store 读写与前缀复用，提升缓存命中率和 Prefill 吞吐。
-\item \lead{传输与 GPU 批次执行}优化主机侧执行、KV cache 操作与 GPU 批次执行之间的异步流程，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
-\item \lead{推理执行与调度优化}承担 Prefill/EPD 与约束解码相关优化；对比定长压测与真实流量，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
-\item \lead{分层缓存架构验证}探索 LMCache 与 KV manager 的分层架构，搭建 LMCache 服务端并完成方案可行性验证。
+\item 完成 Kimi 系列引擎适配及 PP 部署适配，支撑 GLM、DeepSeek 系列落地与精度验证；修复 PP 部署中的稳定性问题。
+\item 完善引擎可观测性接口，定位并解决核心稳定性问题，覆盖多并行、多模态等复杂缓存场景。
 \end{itemize}
+\vspace{3pt}
+\textbf{Attention Store：模型状态管理与缓存复用}\par
+\begin{itemize}
+\item 完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成 AS 存储子系统；优化缓存读写与前缀复用，提升缓存命中率和 Prefill 吞吐。团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
+\end{itemize}
+\vspace{3pt}
+\textbf{推理运行时：传输计算协同与执行优化}\par
+\begin{itemize}
+\item 优化主机侧执行、KV cache 操作与 GPU 批次执行之间的异步流程，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
+\item 承担 Prefill/EPD 与约束解码相关优化；针对定长压测与真实流量的性能差异，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
+\end{itemize}
+\lead{分层缓存探索}探索 LMCache 与 KV manager 的分层架构，搭建 LMCache 服务端并完成方案可行性验证。\par
 \vspace{5pt}
 \role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
+面向云业务负载开展 CPU 微架构分析与软硬件协同优化。
 \begin{itemize}
-\item \lead{负载分析}基于 perf 和 Intel Pin 构建低开销指令流分析工具，提取 MySQL、Redis 等云服务负载的指令流特征，为微架构方案验证提供依据。
-\item \lead{微架构验证}结合指令流特征与 ChampSim 仿真验证 CPU 方案，TLB 命中率提升 30\%，IPC 提升 6\%；相关方案已申请发明专利。
-\item \lead{软硬协同}与海思、openEuler 团队协作验证鲲鹏 CPU 性能优化方案，单核吞吐量提升 8\%。
+\item \lead{云负载特征分析}围绕 MySQL、Redis 等云服务，基于 perf 和 Intel Pin 构建低开销指令流分析工具，提取负载特征，为 CPU 微架构方案验证提供依据。
+\item \lead{微架构方案验证}结合负载特征与 ChampSim 仿真验证 CPU 微架构优化方案，TLB 命中率提升 30\%，IPC 提升 6\%；相关方案已申请发明专利。
+\item \lead{软硬件协同优化}与海思、openEuler 团队协作验证鲲鹏 CPU 优化方案，单核吞吐量提升 8\%。
 \end{itemize}
 \vspace{5pt}
 \role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
@@ -61,7 +72,7 @@
 
 \newpage
 {\fontsize{16}{21}\selectfont\bfseries 段冰}\hspace{8pt}Reese\hfill AI Infra / 大模型推理系统\par
-\cvsection{独立系统项目}
+\cvsection{独立项目}
 独立开展推理运行时、状态复用系统和推理控制面的设计与实现。\par
 \project{SGLang Rust Runtime}{2026.05 - 至今}{\href{https://github.com/imReese/sglang-rs}{github.com/imReese/sglang-rs}}{Rust / gRPC / CUDA}
 \begin{itemize}
@@ -70,18 +81,16 @@
 \item \lead{执行后端}实现 Qwen2/3 共享 dense decoder、F32 CPU 参考与 BF16 CUDA 执行路径，接入 cuBLAS GEMM 与 GQA paged attention。
 \end{itemize}
 \vspace{5pt}
-\project{NexusKV}{2025.04 - 至今}{\href{https://github.com/imReese/NexusKV}{github.com/imReese/NexusKV}}{Go / Rust / Python}
+\project{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{\href{https://github.com/imReese/NexusKV}{github.com/imReese/NexusKV}}{Go / Rust / Python}
 \begin{itemize}
-\item \lead{缓存复用判断}设计跨引擎的状态复用方案：命中后检查租户、模型版本和数据布局是否匹配，再评估复用范围、传输成本及引擎的使用条件，并记录判断依据。
-\item \lead{引擎与存储解耦}设计统一的状态描述和复用接口，将复用判断与存储、传输分开；由推理引擎决定是否使用外部缓存并负责内存分配，便于接入不同引擎和存储后端。
-\item \lead{索引与引擎适配}使用 Rust 实现前缀匹配和写时复制索引，构建 Host DRAM 存储；通过引擎适配接口协调状态传输、使用与释放。
+\item \lead{复用条件与边界}设计跨引擎复用层，校验租户、模型版本与数据布局，评估复用范围、传输成本和引擎使用条件，并记录依据；复用判断与存储传输解耦，由引擎负责内存分配并决定是否使用缓存。
+\item \lead{索引与适配}用 Rust 实现前缀索引和部分复用计划，以写时复制处理并发更新；通过 Host DRAM 存储及引擎适配接口协调状态传输、使用与释放。
 \end{itemize}
 \vspace{5pt}
-\project{Locus}{}{\href{https://github.com/imReese/Locus}{github.com/imReese/Locus}}{Rust / Axum}
+\project{Locus · 状态感知的推理控制面}{}{\href{https://github.com/imReese/Locus}{github.com/imReese/Locus}}{Rust / Axum}
 \begin{itemize}
-\item \lead{跨实例调度}设计推理控制面，结合模型语义和引擎能力筛选可用实例，再综合租户策略、实例负载与缓存位置，选择请求的执行实例。
-\item \lead{规划与执行分离}控制面负责跨实例调度，引擎负责实例内批次调度；将实例选择与引擎调用、状态传输分开，便于独立调整调度策略并管理执行过程。
-\item \lead{执行流程}构建 OpenAI/Anthropic 兼容接口和租户准入机制，串联目标资源预留、状态导入协调与任务提交；执行失败时按预定范围回退并清理资源。
+\item \lead{计算与缓存协同调度}设计跨实例推理控制面，按模型语义和引擎能力筛选可用实例，再结合租户策略、实例负载与缓存位置选择执行目标，将状态复用机会纳入调度决策。
+\item \lead{规划与执行分离}将实例选择与资源预留、状态导入、引擎调用分开；执行前重新校验，失败时按预定范围回退并清理资源，批次调度仍由引擎负责。
 \end{itemize}
 
 \cvsection{架构设计建议}
