@@ -1,8 +1,8 @@
-% Private review draft, revised from the user's original repository resume.
+% Chinese resume, based on the original repository resume.
 % Compile twice with XeLaTeX. Self-contained; requires fontspec, geometry,
 % enumitem, hyperref and Noto Sans CJK SC. No resume.cls or photo is needed.
 % Baidu model versions and internal cache metrics are intentionally omitted.
-% Huawei figures are retained from the original resume, not newly verified.
+% Compile with XeLaTeX to produce the accompanying two-page PDF.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=17mm,top=16mm,bottom=18mm]{geometry}
 \usepackage{fontspec}
@@ -10,7 +10,7 @@
 \setsansfont{Noto Sans CJK SC}
 \usepackage{enumitem}
 \usepackage[hidelinks,unicode]{hyperref}
-\hypersetup{pdftitle={段冰 AI Infra 与大模型推理引擎 简历草稿},pdfauthor={段冰}}
+\hypersetup{pdftitle={段冰 AI Infra 与大模型推理系统 简历},pdfauthor={段冰}}
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip=0pt plus 1pt
 \setlength{\parindent}{0pt}
@@ -31,16 +31,16 @@
 \vspace{6pt}
 \textbf{求职方向}\quad AI Infra / 大模型推理系统\par
 \vspace{4pt}
-聚焦大模型推理系统与性能优化，涵盖运行时调度、状态存储复用、并行执行与传输协同；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
+聚焦大模型推理系统与性能优化，涵盖运行时调度、状态存储与复用，以及并行执行和传输协同；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
 
 \cvsection{工作经历}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
-负责 SGLang 生产级部署与工程化，支撑大规模集群推理服务；补齐引擎可观测性接口，推进核心稳定性问题闭环。
+负责 SGLang 生产级部署与工程化，支撑大规模集群推理服务；完善引擎可观测性接口，定位并解决核心稳定性问题。
 \begin{itemize}
 \item \lead{缓存索引与存储子系统}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成 AS 存储子系统；修复多并行、多模态场景的稳定性问题。
 \item \lead{模型适配与并行部署}完成 Kimi 系列引擎适配，处理 PP 部署适配与稳定性问题；支撑 GLM、DeepSeek 系列落地与精度验证。团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
 \item \lead{缓存读写与复用收益}优化 Attention Store 读写与前缀复用，提升缓存命中率和 Prefill 吞吐。
-\item \lead{传输与 GPU 批次执行}组织主机侧执行、KV cache 操作与 GPU 批次执行的异步流水，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
+\item \lead{传输与 GPU 批次执行}优化主机侧执行、KV cache 操作与 GPU 批次执行之间的异步流程，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
 \item \lead{推理执行与调度优化}承担 Prefill/EPD 与约束解码相关优化；对比定长压测与真实流量，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
 \item \lead{分层缓存架构验证}探索 LMCache 与 KV manager 的分层架构，搭建 LMCache 服务端并完成方案可行性验证。
 \end{itemize}
@@ -60,27 +60,28 @@
 \end{itemize}
 
 \newpage
-{\fontsize{16}{21}\selectfont\bfseries 段冰}\hspace{8pt}Reese\hfill AI Infra / 大模型推理引擎\par
+{\fontsize{16}{21}\selectfont\bfseries 段冰}\hspace{8pt}Reese\hfill AI Infra / 大模型推理系统\par
 \cvsection{独立系统项目}
-独立研发项目，覆盖运行时、状态复用与推理控制面；当前处于功能与集成验证阶段。\par
+独立开展推理运行时、状态复用系统和推理控制面的设计与实现。\par
 \project{SGLang Rust Runtime}{2026.05 - 至今}{\href{https://github.com/imReese/sglang-rs}{github.com/imReese/sglang-rs}}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item \lead{调度与就绪门控}实现按未缓存 token 预算组建 Prefill 批次、页对齐前缀复用与 KV 就绪门控；P/D Decode 在 KV 就绪后派发，异步 Prefill 页在传输完成后发布。
-\item \lead{统一物理 KV 页}CUDA 执行与 Mooncake 注册使用同一 page-major KV pool；以 RAII 管理注册与设备内存生命周期，先注销再释放。失败时回收未发布页，中止时取消传输批次。
+\item \lead{批次调度}按未缓存 token 数控制 Prefill 批次规模，支持页对齐的前缀复用；P/D 分离模式下，Decode 等待 KV 就绪后执行，异步 Prefill 的缓存页在传输完成后才对外可用。
+\item \lead{统一物理 KV 页}CUDA 执行与 Mooncake 注册共用同一 page-major KV pool，通过 RAII 管理注册和设备内存，确保先注销再释放；失败时回收尚未对外提供的缓存页，请求取消时同步取消相关传输。
 \item \lead{执行后端}实现 Qwen2/3 共享 dense decoder、F32 CPU 参考与 BF16 CUDA 执行路径，接入 cuBLAS GEMM 与 GQA paged attention。
 \end{itemize}
 \vspace{5pt}
 \project{NexusKV}{2025.04 - 至今}{\href{https://github.com/imReese/NexusKV}{github.com/imReese/NexusKV}}{Go / Rust / Python}
 \begin{itemize}
-\item \lead{状态语义与匹配}以版本化描述符区分租户、模型修订与布局；用 Rust 实现精确匹配、最长前缀匹配、部分命中计划和并发 copy-on-write 更新，经 PyO3 暴露给 Python 规划层。
-\item \lead{载荷与消费边界}实现带容量上限和身份隔离的 Host DRAM 存储；以 payload handle、transfer session 区分状态发现、传输过程与运行时消费，保留引擎对最终接纳和内存分配的控制权。
-\item \lead{适配与协议验证}提供生命周期感知的 SGLang/vLLM 适配接口及 Locus 的 lookup/estimate/materialize HTTP 桥接；验证确定性动作选择、回退、生命周期协议和本地 HTTP 传输。
+\item \lead{缓存复用判断}设计跨引擎的状态复用方案：命中后检查租户、模型版本和数据布局是否匹配，再评估复用范围、传输成本及引擎的使用条件，并记录判断依据。
+\item \lead{引擎与存储解耦}设计统一的状态描述和复用接口，将复用判断与存储、传输分开；由推理引擎决定是否使用外部缓存并负责内存分配，便于接入不同引擎和存储后端。
+\item \lead{索引与引擎适配}使用 Rust 实现前缀匹配和写时复制索引，构建 Host DRAM 存储；通过引擎适配接口协调状态传输、使用与释放。
 \end{itemize}
 \vspace{5pt}
 \project{Locus}{}{\href{https://github.com/imReese/Locus}{github.com/imReese/Locus}}{Rust / Axum}
 \begin{itemize}
-\item \lead{策略感知放置}实现 OpenAI/Anthropic 兼容入口、租户加权准入和能力过滤，结合模型语义、计算负载与可复用状态成本生成 PlacementPlan。
-\item \lead{执行编排}分离 Planner 与 PlanExecutor，执行重新校验、目标预留、可选状态导入协调、任务提交、有界回退与清理；使用官方 SDK 和确定性引擎验证本地 HTTP 协议及编排链路。
+\item \lead{跨实例调度}设计推理控制面，结合模型语义和引擎能力筛选可用实例，再综合租户策略、实例负载与缓存位置，选择请求的执行实例。
+\item \lead{规划与执行分离}控制面负责跨实例调度，引擎负责实例内批次调度；将实例选择与引擎调用、状态传输分开，便于独立调整调度策略并管理执行过程。
+\item \lead{执行流程}构建 OpenAI/Anthropic 兼容接口和租户准入机制，串联目标资源预留、状态导入协调与任务提交；执行失败时按预定范围回退并清理资源。
 \end{itemize}
 
 \cvsection{架构设计建议}
