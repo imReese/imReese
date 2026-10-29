@@ -34,27 +34,31 @@
 专注大模型推理系统开发与生产环境性能优化，覆盖多模型接入、缓存子系统建设与运行时调度；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
 
 \cvsection{工作经历}
+\begingroup
+\setlist[itemize]{leftmargin=1.05em,label=\textbullet,itemsep=2pt,topsep=2pt,parsep=0pt,partopsep=0pt}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
 负责百度智能云千帆 MaaS 的推理引擎开发与性能优化，以及 SGLang 的生产部署与工程化，支撑多模型在线推理服务。
-\vspace{5pt}\par
+\vspace{3pt}\par
 \textbf{多模型接入与生产稳定性}\par
 \begin{itemize}
 \item 完成 Kimi 系列引擎适配及 PP 部署适配，支撑 GLM、DeepSeek 系列落地与精度验证；修复 PP 部署中的稳定性问题。
-\item 完善引擎可观测性接口，定位并解决核心稳定性问题，覆盖多并行、多模态等复杂缓存场景。
+\item 完善引擎可观测性接口，定位并解决核心稳定性问题。
 \end{itemize}
-\vspace{3pt}
+\vspace{1pt}
 \textbf{Attention Store：模型状态管理与缓存复用}\par
 \begin{itemize}
-\item 完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成 AS 存储子系统；优化缓存读写与前缀复用，提升缓存命中率和 Prefill 吞吐。团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
+\item 面向多模型、多并行部署中的状态复用，完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成缓存存储子系统，并解决多并行、多模态场景中的稳定性问题。
+\item 优化 AS 读写路径和前缀复用，提升缓存命中率和 Prefill 吞吐；团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
 \end{itemize}
-\vspace{3pt}
+\vspace{1pt}
 \textbf{推理运行时：传输计算协同与执行优化}\par
 \begin{itemize}
-\item 优化主机侧执行、KV cache 操作与 GPU 批次执行之间的异步流程，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
+\item 将主机侧 KV cache 操作、H2D/D2H 传输与 GPU 批次执行组织为异步流程，实现传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
 \item 承担 Prefill/EPD 与约束解码相关优化；针对定长压测与真实流量的性能差异，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
 \end{itemize}
-\lead{分层缓存探索}探索 LMCache 与 KV manager 的分层架构，搭建 LMCache 服务端并完成方案可行性验证。\par
+\lead{分层缓存探索}探索 LMCache 与 KV manager 的分层架构，搭建服务端并验证方案可行性。\par
 \vspace{5pt}
+\endgroup
 \role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
 面向云业务负载开展 CPU 微架构分析与软硬件协同优化。
 \begin{itemize}
