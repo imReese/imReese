@@ -13,9 +13,9 @@
 
 I'm a software engineer on the **Training and Inference Engine team at Baidu AI Computing**, working on large-scale LLM inference deployments.
 
-My work spans prefill acceleration, disaggregated serving, constrained decoding, and KV cache storage and reuse. I optimize scheduling and asynchronous execution to overlap host-to-device and device-to-host transfers with GPU computation.
+My work centers on inference runtime performance, attention-state storage and reuse, and parallel deployment. I optimize request scheduling and asynchronous execution, including overlap between cache transfers and GPU computation.
 
-I also contribute to our team's Attention Store, supporting the Kimi, DeepSeek, and GLM model families, including KDA state handling and L3 storage integration for pipeline-parallel inference.
+I contribute to our team's Attention Store, supporting the Kimi, DeepSeek, and GLM model families, including KDA state handling and L3 storage integration for pipeline-parallel inference. My runtime work includes prefill acceleration, disaggregated serving, and constrained decoding.
 
 ## Selected Work
 

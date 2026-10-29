@@ -29,9 +29,9 @@
 \vspace{6pt}
 +86 18510840710\quad |\quad \href{mailto:reese_duan@163.com}{reese\_duan@163.com}\quad |\quad \href{https://github.com/imReese}{github.com/imReese}\quad |\quad \href{https://imreese.github.io/}{技术博客}\par
 \vspace{6pt}
-\textbf{求职方向}\quad AI Infra / 大模型推理引擎 / 后端系统\par
+\textbf{求职方向}\quad AI Infra / 大模型推理系统\par
 \vspace{4pt}
-聚焦大模型推理运行时、模型状态缓存与传输计算重叠。此前从事 CPU 微架构性能分析和分布式存储控制面开发。
+聚焦大模型推理系统与性能优化，涵盖运行时调度、状态存储复用、并行执行与传输协同；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
 
 \cvsection{工作经历}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
@@ -41,7 +41,7 @@
 \item \lead{模型适配与并行部署}完成 Kimi 系列引擎适配，处理 PP 部署适配与稳定性问题；支撑 GLM、DeepSeek 系列落地与精度验证。团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
 \item \lead{缓存读写与复用收益}优化 Attention Store 读写与前缀复用，提升缓存命中率和 Prefill 吞吐。
 \item \lead{传输与 GPU 批次执行}组织主机侧执行、KV cache 操作与 GPU 批次执行的异步流水，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
-\item \lead{Prefill 与运行时优化}承担 Prefill/EPD 与约束解码相关优化；对比定长压测与真实流量，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
+\item \lead{推理执行与调度优化}承担 Prefill/EPD 与约束解码相关优化；对比定长压测与真实流量，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
 \item \lead{分层缓存架构验证}探索 LMCache 与 KV manager 的分层架构，搭建 LMCache 服务端并完成方案可行性验证。
 \end{itemize}
 \vspace{5pt}
@@ -62,7 +62,7 @@
 \newpage
 {\fontsize{16}{21}\selectfont\bfseries 段冰}\hspace{8pt}Reese\hfill AI Infra / 大模型推理引擎\par
 \cvsection{独立系统项目}
-以下项目处于研发验证阶段；本地功能与协议验证不等同于生产部署验收。\par
+独立研发项目，覆盖运行时、状态复用与推理控制面；当前处于功能与集成验证阶段。\par
 \project{SGLang Rust Runtime}{2026.05 - 至今}{\href{https://github.com/imReese/sglang-rs}{github.com/imReese/sglang-rs}}{Rust / gRPC / CUDA}
 \begin{itemize}
 \item \lead{调度与就绪门控}实现按未缓存 token 预算组建 Prefill 批次、页对齐前缀复用与 KV 就绪门控；P/D Decode 在 KV 就绪后派发，异步 Prefill 页在传输完成后发布。
