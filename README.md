@@ -11,49 +11,32 @@
 
 ## About
 
-I'm a software engineer on the **Training and Inference Engine team at Baidu AI Computing**, working on enterprise-scale LLM inference deployments.
+I'm a software engineer on the **Training and Inference Engine team at Baidu AI Computing**, working on large-scale LLM inference deployments.
 
-My focus spans request & runtime scheduling, prefill/decode execution, KV cache management, P/D disaggregation, high-performance transfer engines, and heterogeneous accelerator backends — building systems that stay fast, observable, and reliable at extreme scale.
+My work spans prefill acceleration, disaggregated serving, constrained decoding, and KV cache storage and reuse. I optimize scheduling and asynchronous execution to overlap host-to-device and device-to-host transfers with GPU computation.
+
+I also contribute to our team's Attention Store, supporting the Kimi, DeepSeek, and GLM model families, including KDA state handling and L3 storage integration for pipeline-parallel inference.
 
 ## Selected Work
 
 > *Building modular, engine-neutral components across inference systems, attention architectures, and runtime platforms:*
 
 <details>
-  <summary><strong>System Architecture & Placement Model</strong></summary>
-  <br/>
+  <summary><strong>Target Architecture</strong></summary>
 
-```text
-                         Clients
-                            │ (OpenAI / Native Protocols)
-                            ▼
-┌───────────────────────────────────────────────────────────┐
-│                 Inference Frontend (Locus)                │
-│  Protocol · Templates · Tokenization · Tool/Reasoning IO  │
-└───────────────────────────┬───────────────────────────────┘
-                            │ token request
-                            ▼
-┌───────────────────────────────────────────────────────────┐
-│              Global Inference Planner (Locus)             │
-│  Load · Cache Locality · Topology · P/D Aware Placement   │
-└─────────────┬───────────────────────────────┬─────────────┘
-              │ placement plan                │ state plan
-              ▼                               ▼
-┌───────────────────────────┐   ┌───────────────────────────┐
-│     Inference Engines     │   │      KV & State Plane     │
-│  SGLang / vLLM / sglang-rs│◄─►│    NexusKV / Mooncake     │
-│  GPU Compute & Kernels    │   │ State Index · RDMA/TCP    │
-└───────────────────────────┘   └───────────────────────────┘
-```
+Design direction across these projects. Dashed arrows show planned interfaces; implementation details live in each repository.
+
+![Target architecture: Locus handles request orchestration and compute placement; NexusKV handles state identity and reuse planning; runtimes connect with external storage and transfer backends.](img/target-architecture.svg)
+
 </details>
 
 | Tier | Project | Focus & Highlights | Stack |
 | :--- | :--- | :--- | :--- |
-| **Control Plane** | [**Locus**](https://github.com/imReese/Locus) | Engine-neutral inference control plane for global compute and model-state placement across heterogeneous engines and state stores. | `Rust` `Axum` |
-| **State & Cache** | [**NexusKV**](https://github.com/imReese/NexusKV) | Disaggregated KV cache platform separating control plane, data plane, prefix reuse indexing, and engine adapters. | `Go` `Rust` `Python` |
-| **Engine Runtime** | [**sglang-rs**](https://github.com/imReese/sglang-rs) | Rust runtime exploring request lifecycle, gRPC routing, prefix caching, KV page allocation, and P/D KV transfer boundaries. | `Rust` `gRPC` |
-| **Attention & Kernels** | [**parallax-lab**](https://github.com/imReese/parallax-lab) | Hands-on experiments for evaluating attention architectures, associative recall benchmarks, and peak memory efficiency. | `PyTorch` `CUDA` `Python` |
-| **Quant Platform** | [**Karkinos**](https://github.com/imReese/Karkinos) | Local-first quantitative research and execution platform with reproducible backtesting, risk controls, and shadow validation. | `Python` `FastAPI` `React` `TypeScript` |
+| **Control Plane** | [**Locus**](https://github.com/imReese/Locus) | Engine-neutral inference control plane for request orchestration and compute placement, informed by model-state locality. | `Rust` `Axum` |
+| **State & Cache** | [**NexusKV**](https://github.com/imReese/NexusKV) | Engine-neutral model-state reuse platform for state identity, compatibility-aware matching, and reuse planning. | `Go` `Rust` `Python` |
+| **Engine Runtime** | [**sglang-rs**](https://github.com/imReese/sglang-rs) | Rust-native inference runtime exploring CPU scheduling, cache control, and asynchronous GPU execution. | `Rust` `gRPC` |
+| **Attention & Kernels** | [**parallax-lab**](https://github.com/imReese/parallax-lab) | Hands-on experiments for evaluating attention architectures, associative recall benchmarks, and peak memory usage. | `PyTorch` `CUDA` `Python` |
+| **Quant Platform** | [**Karkinos**](https://github.com/imReese/Karkinos) | Local-first quantitative research and investing platform for China markets, with reproducible backtesting, risk controls, and paper validation. | `Python` `FastAPI` `React` `TypeScript` |
 | **Engineering Notes** | [**imreese.github.io**](https://github.com/imReese/imReese.github.io) | Personal site and source-level systems engineering notes with interactive components and deep dives. | `Next.js` `React` `MDX` |
 
 ## Recent Notes
@@ -105,7 +88,7 @@ My focus spans request & runtime scheduling, prefill/decode execution, KV cache 
   control-plane systems at Huawei Data Storage.
 </details>
 
-## Contributions
+## Activity
 
 <picture>
   <source

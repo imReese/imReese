@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="370" viewBox="0 0 800 370" role="img" aria-labelledby="title desc">
+  <title id="title">Target architecture for engine-neutral inference</title>
+  <desc id="desc">Locus handles requests and compute placement. NexusKV provides state identity, compatibility matching, and reuse planning. Planned interfaces lead to inference runtimes and external storage and transfer backends. Dashed arrows indicate design intent, not completed integrations.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0 0 7 3.5 0 7" fill="none" stroke="#6c6f85" stroke-width="1.2"/></marker>
+  </defs>
+  <rect width="800" height="370" rx="16" fill="#eff1f5"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" fill="#4c4f69">
+    <text x="32" y="34" font-size="14" font-weight="600" letter-spacing="1">TARGET ARCHITECTURE</text>
+    <text x="32" y="58" font-size="13">Dashed arrows = planned interfaces · external components labeled below</text>
+    <rect x="32" y="84" width="320" height="96" rx="12" fill="#e6e9ef" stroke="#1e66f5" stroke-width="1.5"/>
+    <text x="52" y="112" font-size="20" font-weight="600">Locus</text>
+    <text x="52" y="138" font-size="15">Request frontend &amp; orchestration</text>
+    <text x="52" y="160" font-size="15">Compute placement planning</text>
+    <rect x="448" y="84" width="320" height="96" rx="12" fill="#e6e9ef" stroke="#8839ef" stroke-width="1.5"/>
+    <text x="468" y="112" font-size="20" font-weight="600">NexusKV</text>
+    <text x="468" y="138" font-size="15">State identity &amp; compatibility matching</text>
+    <text x="468" y="160" font-size="15">Reuse planning</text>
+    <rect x="32" y="238" width="320" height="96" rx="12" fill="#e6e9ef" stroke="#9ca0b0"/>
+    <text x="52" y="266" font-size="18" font-weight="600">Inference runtimes</text>
+    <text x="52" y="292" font-size="15">sglang-rs</text>
+    <text x="52" y="314" font-size="15">SGLang / vLLM (external)</text>
+    <rect x="448" y="238" width="320" height="96" rx="12" fill="#e6e9ef" stroke="#9ca0b0"/>
+    <text x="468" y="266" font-size="18" font-weight="600">Storage &amp; transfer backends</text>
+    <text x="468" y="292" font-size="15">Mooncake / other stores (external)</text>
+    <text x="468" y="314" font-size="15">State storage &amp; movement</text>
+    <g stroke="#6c6f85" stroke-width="1.5" stroke-dasharray="5 4" fill="none" marker-end="url(#arrow)">
+      <path d="M360 132 H440" marker-start="url(#arrow)"/>
+      <path d="M192 188 V230"/>
+      <path d="M608 188 V230"/>
+      <path d="M360 286 H440" marker-start="url(#arrow)"/>
+    </g>
+    <text x="202" y="213" font-size="12">placement</text>
+    <text x="618" y="213" font-size="12">state I/O</text>
+    <text x="400" y="118" font-size="11" text-anchor="middle">reuse plans</text>
+    <text x="400" y="272" font-size="11" text-anchor="middle">state transfer</text>
+  </g>
+</svg>

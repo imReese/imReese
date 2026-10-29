@@ -1,87 +1,97 @@
-\documentclass{resume}
-
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-
-\name{ 段冰 }
-\phone{ +86 18510840710 }
-\email{ reese\_duan@163.com }   % _在latex中表示角标 注意使用\反义
-\link{ https://github.com/imReese }
-\linkname{ Github/imReese }   % 可以自定义也可以同\link
-\photo{ reese.png }
-
+% Private review draft, revised from the user's original repository resume.
+% Compile twice with XeLaTeX. Self-contained; requires fontspec, geometry,
+% enumitem, hyperref and Noto Sans CJK SC. No resume.cls or photo is needed.
+% Baidu model versions and internal cache metrics are intentionally omitted.
+% Huawei figures are retained from the original resume, not newly verified.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=17mm,top=16mm,bottom=18mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Noto Sans CJK SC}
+\setsansfont{Noto Sans CJK SC}
+\usepackage{enumitem}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={段冰 AI Infra 与大模型推理引擎 简历草稿},pdfauthor={段冰}}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip=0pt plus 1pt
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\pagestyle{plain}
+\raggedbottom
+\setlist[itemize]{leftmargin=1.05em,label=\textbullet,itemsep=3pt,topsep=4pt,parsep=0pt,partopsep=0pt}
+\newcommand{\cvsection}[1]{\par\vspace{10pt}{\fontsize{12.5}{16}\selectfont\bfseries #1}\par\vspace{5pt}}
+\newcommand{\role}[3]{\textbf{#1}\hfill #2\par{#3}\par}
+\newcommand{\project}[4]{\textbf{#1}\hfill #2\par #3\hfill #4\par}
+\newcommand{\lead}[1]{\textbf{#1}：}
 \begin{document}
-\begin{CJK}{UTF8}{gbsn}
+\fontsize{11}{16}\selectfont
+{\fontsize{26}{31}\selectfont\bfseries 段冰}\hspace{10pt}{\fontsize{14}{20}\selectfont Reese}\par
+\vspace{6pt}
++86 18510840710\quad |\quad \href{mailto:reese_duan@163.com}{reese\_duan@163.com}\quad |\quad \href{https://github.com/imReese}{github.com/imReese}\quad |\quad \href{https://imreese.github.io/}{技术博客}\par
+\vspace{6pt}
+\textbf{求职方向}\quad AI Infra / 大模型推理引擎 / 后端系统\par
+\vspace{4pt}
+聚焦大模型推理运行时、模型状态缓存与传输计算重叠。此前从事 CPU 微架构性能分析和分布式存储控制面开发。
 
-\noindent\textbf{求职方向：AI Infra / 大模型推理引擎 / 后端系统}
+\cvsection{工作经历}
+\role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
+负责 SGLang 生产级部署与工程化，支撑大规模集群推理服务；补齐引擎可观测性接口，推进核心稳定性问题闭环。
+\begin{itemize}
+\item \lead{缓存索引与存储子系统}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成 AS 存储子系统；修复多并行、多模态场景的稳定性问题。
+\item \lead{模型适配与并行部署}完成 Kimi 系列引擎适配，处理 PP 部署适配与稳定性问题；支撑 GLM、DeepSeek 系列落地与精度验证。团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
+\item \lead{缓存读写与复用收益}优化 Attention Store 读写与前缀复用，提升缓存命中率和 Prefill 吞吐。
+\item \lead{传输与 GPU 批次执行}组织主机侧执行、KV cache 操作与 GPU 批次执行的异步流水，实现 H2D、D2H 传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
+\item \lead{Prefill 与运行时优化}承担 Prefill/EPD 与约束解码相关优化；对比定长压测与真实流量，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
+\item \lead{分层缓存架构验证}探索 LMCache 与 KV manager 的分层架构，搭建 LMCache 服务端并完成方案可行性验证。
+\end{itemize}
+\vspace{5pt}
+\role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
+\begin{itemize}
+\item \lead{负载分析}基于 perf 和 Intel Pin 构建低开销指令流分析工具，提取 MySQL、Redis 等云服务负载的指令流特征，为微架构方案验证提供依据。
+\item \lead{微架构验证}结合指令流特征与 ChampSim 仿真验证 CPU 方案，TLB 命中率提升 30\%，IPC 提升 6\%；相关方案已申请发明专利。
+\item \lead{软硬协同}与海思、openEuler 团队协作验证鲲鹏 CPU 性能优化方案，单核吞吐量提升 8\%。
+\end{itemize}
+\vspace{5pt}
+\role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
+\begin{itemize}
+\item \lead{控制面开发}负责分布式存储 Cluster Manager，覆盖服务选主、客户端选主与集群生命周期管理。
+\item \lead{异步化与规模扩展}通过异步消息队列和模块解耦，将单集群支持节点数从 128 扩展至 256，资源初始化效率提升 40\%。
+\item \lead{可靠性建设}主导 200+ 接口自动化测试与安全加固，分支覆盖率 90\%+；定位并解决 20+ 生产环境高优先级问题。
+\end{itemize}
 
-\begin{WorkExperienceSection}
-  \beginworkitem
-    { 百度 - AI 计算 / 训推引擎组 }
-    { 2025.06 - 至今 }
-    { 软件工程师（大模型推理引擎） }
-    \item \textbf{SGLang 企业级工程化：}负责 SGLang 的生产级部署与工程化，支撑万卡级集群的大模型推理服务。
-    \item \textbf{推理系统优化：}围绕 runtime 调度、KV Cache、Prefill/Decode 解耦、Mooncake TransferEngine 和异构 backend 开展性能分析与优化。
-    \item \textbf{性能与稳定性：}面向大规模部署分析吞吐、时延、内存与 KV 传输链路，定位 runtime 和 backend 瓶颈。
-  \endworkitem
+\newpage
+{\fontsize{16}{21}\selectfont\bfseries 段冰}\hspace{8pt}Reese\hfill AI Infra / 大模型推理引擎\par
+\cvsection{独立系统项目}
+以下项目处于研发验证阶段；本地功能与协议验证不等同于生产部署验收。\par
+\project{SGLang Rust Runtime}{2026.05 - 至今}{\href{https://github.com/imReese/sglang-rs}{github.com/imReese/sglang-rs}}{Rust / gRPC / CUDA}
+\begin{itemize}
+\item \lead{调度与就绪门控}实现按未缓存 token 预算组建 Prefill 批次、页对齐前缀复用与 KV 就绪门控；P/D Decode 在 KV 就绪后派发，异步 Prefill 页在传输完成后发布。
+\item \lead{统一物理 KV 页}CUDA 执行与 Mooncake 注册使用同一 page-major KV pool；以 RAII 管理注册与设备内存生命周期，先注销再释放。失败时回收未发布页，中止时取消传输批次。
+\item \lead{执行后端}实现 Qwen2/3 共享 dense decoder、F32 CPU 参考与 BF16 CUDA 执行路径，接入 cuBLAS GEMM 与 GQA paged attention。
+\end{itemize}
+\vspace{5pt}
+\project{NexusKV}{2025.04 - 至今}{\href{https://github.com/imReese/NexusKV}{github.com/imReese/NexusKV}}{Go / Rust / Python}
+\begin{itemize}
+\item \lead{状态语义与匹配}以版本化描述符区分租户、模型修订与布局；用 Rust 实现精确匹配、最长前缀匹配、部分命中计划和并发 copy-on-write 更新，经 PyO3 暴露给 Python 规划层。
+\item \lead{载荷与消费边界}实现带容量上限和身份隔离的 Host DRAM 存储；以 payload handle、transfer session 区分状态发现、传输过程与运行时消费，保留引擎对最终接纳和内存分配的控制权。
+\item \lead{适配与协议验证}提供生命周期感知的 SGLang/vLLM 适配接口及 Locus 的 lookup/estimate/materialize HTTP 桥接；验证确定性动作选择、回退、生命周期协议和本地 HTTP 传输。
+\end{itemize}
+\vspace{5pt}
+\project{Locus}{}{\href{https://github.com/imReese/Locus}{github.com/imReese/Locus}}{Rust / Axum}
+\begin{itemize}
+\item \lead{策略感知放置}实现 OpenAI/Anthropic 兼容入口、租户加权准入和能力过滤，结合模型语义、计算负载与可复用状态成本生成 PlacementPlan。
+\item \lead{执行编排}分离 Planner 与 PlanExecutor，执行重新校验、目标预留、可选状态导入协调、任务提交、有界回退与清理；使用官方 SDK 和确定性引擎验证本地 HTTP 协议及编排链路。
+\end{itemize}
 
-  \beginworkitem
-    { 华为云 - 竖亥实验室 }
-    { 2023.07 - 2024.07 }
-    { 计算机体系结构研究工程师 }
-    \item \textbf{性能工具与 workload 分析：}基于 perf 和 Intel Pin 构建低开销指令流分析工具，覆盖 MySQL、Redis 等云服务负载。
-    \item \textbf{体系结构优化：}结合指令流特征与 ChampSim 仿真验证 CPU 微架构方案，TLB 命中率提升30\%，IPC 提升6\%，相关方案已申请发明专利。
-    \item \textbf{软硬协同验证：}与海思、openEuler 团队协作验证鲲鹏 CPU 性能优化方案，单核吞吐量提升8\%。
-  \endworkitem
+\cvsection{架构设计建议}
+向 SGLang 提出缓存数据面与 Scheduler 分离的 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}），讨论元数据所有权、GPU 内存 IPC 与生命周期；另建议将共享缓存传输类型迁到中立模块并兼容导出（\href{https://github.com/sgl-project/sglang/issues/38889}{\#38889}）。
 
-  \beginworkitem
-    { 华为数据存储产品线 - 基础设施开发部 }
-    { 2022.05 - 2023.07 }
-    { 软件开发工程师 }
-    \item \textbf{控制面 CM：}负责分布式存储控制面 Cluster Manager，覆盖服务选主、客户端选主与集群生命周期管理。
-    \item \textbf{规模扩展：}通过异步消息队列与模块解耦，将单集群支持节点数从 128 扩展至 256，资源初始化效率提升40\%。
-    \item \textbf{工程可靠性：}主导 200+ 接口自动化测试与安全加固，分支覆盖率90\%+，并解决 20+ 生产环境高优先级问题。
-  \endworkitem
-\end{WorkExperienceSection}
+\cvsection{技术技能}
+\lead{编程语言}C/C++、Python、Go、Rust、Shell\par
+\lead{性能与系统}Linux、perf、Intel Pin、ChampSim、gdb、Paxos\par
+\lead{工程工具}Docker、Kubernetes、Prometheus、Grafana、Git、CMake
 
-\begin{EducationSection}
-  \begineducationitem
-    { 南京大学 }
-    { 2017.09 -- 2021.06 }
-    { 学士 环境工程 }
-    { GPA: 4.2/5.0 }
-    \item 核心课程：计算机组成原理、数据结构、操作系统、计算机网络、计算机体系结构
-    \item 相关课程：线性代数、概率论与数理统计、算法设计与分析
-  \endeducationitem
-\end{EducationSection}
-
-\begin{ProjectSection}
-  \beginprojectitem
-    { SGLang Rust Runtime }
-    { Rust, gRPC }
-    { https://github.com/imReese/sglang-rs }
-    { 2026.05 -- 至今 }
-    \item 构建独立 Rust runtime，覆盖 request lifecycle、gRPC router、scheduler、prefix cache 与 KV page allocation。
-    \item 面向 PD disaggregation 设计 Mooncake KV transfer 边界，覆盖 bootstrap、readiness、polling 与 descriptor 校验。
-  \endprojectitem
-
-  \beginprojectitem
-    { NexusKV }
-    { Go, Rust, Python }
-    { https://github.com/imReese/NexusKV }
-    { 2025.04 -- 至今 }
-    \item 将早期 Go prototype 演进为 LLM KV Cache 平台，拆分 control plane、data plane 与 engine adapter。
-    \item 推进 versioned state descriptor、Rust prefix reuse index 及 SGLang/vLLM connector，并建设可靠性与 benchmark 框架。
-  \endprojectitem
-
-\end{ProjectSection}
-
-\begin{SkillsSection}
-  { 大模型推理引擎、AI Infra 与后端系统工程 }
-  \item \textbf{编程语言：} C/C++、Python、Go、Shell、Rust
-  \item \textbf{推理系统：} SGLang、KV Cache、Mooncake TransferEngine、gRPC、调度与异构后端
-  \item \textbf{系统与基础设施：} Linux、Paxos、Docker、Kubernetes、Prometheus、Grafana、perf、gdb、Git、CMake
-\end{SkillsSection}
-
-\end{CJK}
+\cvsection{教育背景}
+\textbf{南京大学}\hfill 2017.09 - 2021.06\par
+环境工程 · 学士\hfill GPA 4.2/5.0
 \end{document}
