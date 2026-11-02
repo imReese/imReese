@@ -75,17 +75,17 @@
 \cvsection{独立项目}
 \compactproject{SGLang-rs · Rust 推理运行时原型}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item 分离调度与执行，串联模型加载、前缀缓存和 \mbox{Prefill/Decode}；在 Linux 跑通 \mbox{Qwen2.5-0.5B-Instruct} CPU 推理，CPU 参考测试验证 P/D 数值一致性与 KV 损坏检出；实现 CUDA/Mooncake P/D 接入，GPU 链路待验收。
+\item 分离调度与执行，串联模型加载、前缀缓存和 \mbox{Prefill/Decode}；在 Linux 跑通 \mbox{Qwen2.5-0.5B-Instruct} CPU 推理。适配 Qwen3.5 混合注意力文本模型，通过 CPU 合成权重测试；以 Qwen3 CPU 参考测试验证 P/D 数值一致性与 KV 损坏检测。实现 CUDA/Mooncake P/D 接入，GPU 链路待验收。
 \end{itemize}
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
 \begin{itemize}
-\item 面向跨引擎状态复用，将复用判定与传输执行分离；以 Rust 最长前缀匹配确定复用与待计算范围，经 PyO3 接入 Python，配套有界 Host DRAM 存储；通过身份隔离、容量淘汰与能力不足回退测试。
+\item 分离复用判定与传输执行，以 Rust 实现最长前缀匹配，划分可复用与待计算范围；经 PyO3 接入 Python，配套有界 Host DRAM 存储，通过身份隔离、容量淘汰与能力不足回退测试。
 \end{itemize}
 \vspace{2pt}
 \compactproject{Locus · 状态感知的推理控制面}{2026.08 - 至今}{https://github.com/imReese/Locus}{Rust / Axum}
 \begin{itemize}
-\item 面向跨实例放置与执行控制，按模型能力、负载和状态位置规划目标；分离规划与执行，执行前重校验，管理资源预留、回退与取消清理；通过 OpenAI/Anthropic 官方 SDK 和本地模拟后端验证流式响应与断流取消传播。
+\item 面向跨实例放置与执行控制，按模型能力、负载和状态位置规划目标；分离规划与执行，执行前重校验，管理资源预留、回退与取消清理；通过 OpenAI/Anthropic 官方 SDK 和本地模拟后端验证流式响应与断连后的取消传播。
 \end{itemize}
 \lead{开源讨论}向 SGLang 提出 HiCache 数据面与调度器解耦 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}）。
 
