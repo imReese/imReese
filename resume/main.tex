@@ -64,8 +64,8 @@
 \vspace{2pt}
 {\rmfamily\bfseries SGLang · 企业级推理引擎}\par
 \begin{itemize}[topsep=2pt]
-\item 完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；按请求对齐 Prefill/Decode 时序，将长尾等待定位到 Decode 预分配与握手阶段。
-\item 在 Mamba 请求准入阶段按实际缺口预留状态与缓冲区，缓存回载后复核容量；完善 PP 请求状态与资源释放的协同，协调请求取消、调度重放、KV 传输完成及资源回收时序。
+\item \lead{模型工程化与执行优化}完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；优化 Prefill 状态跟踪与执行计划，复用跨层元数据，减少主机与设备同步及重复分配。
+\item \lead{调度与资源管理}在 Mamba 准入阶段按实际缺口预留状态与缓冲区，缓存回载后复核容量；完善 PP 请求取消、调度重放、KV 传输完成与资源回收的协同时序。
 \end{itemize}
 \vspace{3pt}
 \role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
