@@ -65,12 +65,14 @@
 \vspace{3pt}
 \role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
 \begin{itemize}
-\item 基于 perf、Intel Pin 构建云负载指令流分析工具，用 ChampSim 验证微架构方案，IPC 提升 6\%，已申请发明专利；与海思、openEuler 协作验证鲲鹏 CPU 优化方案，单核吞吐量提升 8\%。
+\item 基于 perf、Intel Pin 构建云负载指令流分析工具，在 ChampSim 中实现并验证 TLB 调度策略，IPC 提升 6\%，已申请发明专利。
+\item 分析指令级并行度，协同海思、openEuler 验证鲲鹏 SMT 优化策略，单核吞吐量提升 8\%。
 \end{itemize}
 \vspace{3pt}
 \role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
 \begin{itemize}
-\item 负责 Cluster Manager 选主与集群生命周期管理，通过异步消息队列和模块解耦将集群从 128 扩展至 256 节点；主导自动化测试与安全加固，解决 20+ 生产高优先级问题。
+\item 负责基于 Paxos 的 Cluster Manager 选主与集群生命周期管理；重构组件通信模型，以异步消息队列解耦模块间通信，将单集群规模从 128 扩展至 256 节点。
+\item 完善模块间参数校验与命令注入防护；定位并解决 20+ 生产高优先级问题。
 \end{itemize}
 
 \cvsection{独立项目}
