@@ -73,7 +73,7 @@
 \begin{itemize}
 % Product-scale context, not a personally measured expansion result:
 % https://blog.huawei.com/2022/01/07/exabyte-scale-out-storage-huawei-oceanstor-pacific/
-\item 负责分布式存储控制面 Cluster Manager，覆盖 DPC 客户端管理、Paxos 选主与集群生命周期；以异步消息队列重构组件通信、解耦模块。OceanStor Pacific 公开规格：最多 4096 个存储节点。
+\item 负责 OceanStor Pacific（最多 4096 个存储节点）控制面 Cluster Manager 的 DPC 客户端管理、\linebreak Paxos 选主与集群生命周期；以异步消息队列重构组件通信、解耦模块。
 \item 通过模块间参数校验与输入过滤防护命令注入；定位并解决 20+ 生产高优先级问题。
 \end{itemize}
 
