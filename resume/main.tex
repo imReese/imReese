@@ -1,13 +1,25 @@
 % Chinese resume, based on the original repository resume.
-% Compile twice with XeLaTeX. Self-contained; requires fontspec, geometry,
-% enumitem, hyperref and Noto Sans CJK SC. No resume.cls or photo is needed.
+% Compile twice with XeLaTeX; keep reese.png alongside this source.
+% Original font families: AR PL SungtiL GB (gbsn) and Latin Modern Roman.
+% Requires fontspec, ucharclasses, geometry, enumitem, graphicx and hyperref.
+% Keep fonts/gbsn00lp.ttf beside the source; no custom resume.cls is needed.
 % Baidu model versions and internal cache metrics are intentionally omitted.
-% Compile with XeLaTeX to produce the accompanying two-page PDF.
-\documentclass[11pt,a4paper]{article}
-\usepackage[margin=17mm,top=16mm,bottom=18mm]{geometry}
+% Compile with XeLaTeX to produce the accompanying one-page A4 PDF.
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=17mm,top=13.5mm,bottom=13.5mm]{geometry}
 \usepackage{fontspec}
-\setmainfont{Noto Sans CJK SC}
-\setsansfont{Noto Sans CJK SC}
+\usepackage{graphicx}
+\usepackage{fix-cm}
+\setmainfont{lmroman10-regular.otf}[
+  BoldFont=lmroman10-bold.otf,
+  ItalicFont=lmroman10-italic.otf,
+  BoldItalicFont=lmroman10-bolditalic.otf]
+\newfontfamily\originalCJKfont{gbsn00lp.ttf}[Path=fonts/,AutoFakeBold=2]
+\usepackage[BasicLatin,LatinSupplement,Chinese,HalfwidthAndFullwidthForms]{ucharclasses}
+\setTransitionsForChinese{\originalCJKfont}{}
+\setTransitionsFor{HalfwidthAndFullwidthForms}{\originalCJKfont}{}
+\setTransitionTo{BasicLatin}{\rmfamily}
+\setTransitionTo{LatinSupplement}{\rmfamily}
 \usepackage{enumitem}
 \usepackage[hidelinks,unicode]{hyperref}
 \hypersetup{pdftitle={段冰 AI Infra 与大模型推理系统 简历},pdfauthor={段冰}}
@@ -16,96 +28,73 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{2em}
-\pagestyle{plain}
+\pagestyle{empty}
+\hyphenation{Mooncake}
 \raggedbottom
-\setlist[itemize]{leftmargin=1.05em,label=\textbullet,itemsep=3pt,topsep=4pt,parsep=0pt,partopsep=0pt}
-\newcommand{\cvsection}[1]{\par\vspace{10pt}{\fontsize{12.5}{16}\selectfont\bfseries #1}\par\vspace{5pt}}
-\newcommand{\role}[3]{\textbf{#1}\hfill #2\par{#3}\par}
-\newcommand{\project}[4]{\textbf{#1}\hfill #2\par #3\hfill #4\par}
-\newcommand{\lead}[1]{\textbf{#1}：}
+\setlist[itemize]{leftmargin=1.05em,label={\rmfamily\textbullet},itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\newcommand{\cvsection}[1]{\par\vspace{7pt}{\rmfamily\fontsize{11.5}{15}\selectfont\bfseries #1}\par\vspace{2pt}\hrule height 0.3pt\vspace{4pt}}
+\newcommand{\role}[3]{{\rmfamily\bfseries #1}\hfill{\rmfamily\fontsize{10}{14}\selectfont #2}\par{#3}\par}
+\newcommand{\priorrole}[3]{{\rmfamily\bfseries #1}\quad{\fontsize{10}{14}\selectfont #3}\hfill{\rmfamily\fontsize{10}{14}\selectfont #2}\par}
+\newcommand{\compactproject}[4]{{\rmfamily\bfseries\href{#3}{#1}}\quad{\fontsize{9.5}{12}\selectfont #4}\hfill{\rmfamily\fontsize{9.5}{12}\selectfont #2}\par}
+\newcommand{\lead}[1]{{\rmfamily\bfseries #1}：}
 \begin{document}
-\fontsize{11}{16}\selectfont
-{\fontsize{26}{31}\selectfont\bfseries 段冰}\hspace{10pt}{\fontsize{14}{20}\selectfont Reese}\par
+\fontsize{11}{15}\selectfont
+\noindent\begin{minipage}[c]{0.79\textwidth}
+\centering
+{\fontsize{24}{29}\selectfont\bfseries 段冰}\hspace{10pt}{\fontsize{14}{20}\selectfont Reese}\par
 \vspace{6pt}
-+86 18510840710\quad |\quad \href{mailto:reese_duan@163.com}{reese\_duan@163.com}\quad |\quad \href{https://github.com/imReese}{github.com/imReese}\quad |\quad \href{https://imreese.github.io/}{技术博客}\par
+{\rmfamily\fontsize{10}{14}\selectfont +86 18510840710\quad |\quad \href{mailto:reese_duan@163.com}{reese\_duan@163.com}\quad |\quad \href{https://github.com/imReese}{github.com/imReese}}\par
 \vspace{6pt}
-\textbf{求职方向}\quad AI Infra / 大模型推理系统\par
-\vspace{4pt}
-专注大模型推理系统开发与生产环境性能优化，覆盖多模型接入、缓存子系统建设与运行时调度；具备 CPU 微架构性能分析和分布式存储控制面开发经验。
+{\rmfamily\bfseries 求职意向}\quad 大模型推理引擎 / 推理服务\quad |\quad 北京\par
+\end{minipage}\hfill
+\begin{minipage}[c]{0.16\textwidth}
+\raggedleft
+\includegraphics[width=22mm]{reese.png}
+\end{minipage}\par
+\vspace{3pt}
 
 \cvsection{工作经历}
-\begingroup
-\setlist[itemize]{leftmargin=1.05em,label=\textbullet,itemsep=2pt,topsep=2pt,parsep=0pt,partopsep=0pt}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
-负责百度智能云千帆 MaaS 的推理引擎开发与性能优化，以及 SGLang 的生产部署与工程化，支撑多模型在线推理服务。
-\vspace{3pt}\par
-\textbf{多模型接入与生产稳定性}\par
+负责百度智能云千帆 MaaS 推理引擎研发与性能优化，以及 SGLang 生产部署与工程化。
 \begin{itemize}
-\item 完成 Kimi 系列引擎适配及 PP 部署适配，支撑 GLM、DeepSeek 系列落地与精度验证；修复 PP 部署中的稳定性问题。
-\item 完善引擎可观测性接口，定位并解决核心稳定性问题。
+\item \lead{多模型与并行部署}完成模型引擎适配与精度验证，开展 TP、多 DP、PP、DCP 等并行配置下的部署；完善可观测性接口，定位并解决并行部署中的稳定性问题。
+\item \lead{运行时性能分析}针对定长压测与真实流量的性能差异，分析请求长度、执行后端选择和缓存复用收益；承担 Prefill/EPD 与约束解码相关优化。
+\item \lead{传输与计算重叠}将主机侧 KV cache 操作、H2D/D2H 传输与 GPU 批次执行组织为异步流程，结合 Mooncake TransferEngine 分析并优化 KV 传输路径。
+\item \lead{状态管理}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成面向多模型、多并行部署的缓存存储子系统，解决多并行、多模态场景中的稳定性问题。
+\item \lead{缓存复用}优化 AS 读写与前缀复用，实际业务流量下缓存命中率达 90\%+，提升 Prefill 吞吐；团队方案支持流水线并行下的 L3 存储接入。
 \end{itemize}
-\vspace{1pt}
-\textbf{Attention Store：模型状态管理与缓存复用}\par
+\vspace{3pt}
+\priorrole{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
 \begin{itemize}
-\item 面向多模型、多并行部署中的状态复用，完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成缓存存储子系统，并解决多并行、多模态场景中的稳定性问题。
-\item 优化 AS 读写路径和前缀复用，提升缓存命中率和 Prefill 吞吐；团队 AS 方案支持 KDA 状态及 PP 下的 L3 存储接入。
+\item 基于 perf、Intel Pin 构建云负载指令流分析工具，用 ChampSim 验证微架构方案，IPC 提升 6\%，已申请发明专利；与海思、openEuler 协作验证鲲鹏 CPU 优化方案，单核吞吐量提升 8\%。
 \end{itemize}
-\vspace{1pt}
-\textbf{推理运行时：传输计算协同与执行优化}\par
+\vspace{3pt}
+\priorrole{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
 \begin{itemize}
-\item 将主机侧 KV cache 操作、H2D/D2H 传输与 GPU 批次执行组织为异步流程，实现传输与计算重叠；结合 Mooncake TransferEngine 分析与优化 KV 传输路径。
-\item 承担 Prefill/EPD 与约束解码相关优化；针对定长压测与真实流量的性能差异，分析请求长度和 KDA 后端选择对 Prefill 性能及缓存复用收益的影响。
-\end{itemize}
-\lead{分层缓存探索}探索 LMCache 与 KV manager 的分层架构，搭建服务端并验证方案可行性。\par
-\vspace{5pt}
-\endgroup
-\role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
-面向云业务负载开展 CPU 微架构分析与软硬件协同优化。
-\begin{itemize}
-\item \lead{云负载特征分析}围绕 MySQL、Redis 等云服务，基于 perf 和 Intel Pin 构建低开销指令流分析工具，提取负载特征，为 CPU 微架构方案验证提供依据。
-\item \lead{微架构方案验证}结合负载特征与 ChampSim 仿真验证 CPU 微架构优化方案，TLB 命中率提升 30\%，IPC 提升 6\%；相关方案已申请发明专利。
-\item \lead{软硬件协同优化}与海思、openEuler 团队协作验证鲲鹏 CPU 优化方案，单核吞吐量提升 8\%。
-\end{itemize}
-\vspace{5pt}
-\role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
-\begin{itemize}
-\item \lead{控制面开发}负责分布式存储 Cluster Manager，覆盖服务选主、客户端选主与集群生命周期管理。
-\item \lead{异步化与规模扩展}通过异步消息队列和模块解耦，将单集群支持节点数从 128 扩展至 256，资源初始化效率提升 40\%。
-\item \lead{可靠性建设}主导 200+ 接口自动化测试与安全加固，分支覆盖率 90\%+；定位并解决 20+ 生产环境高优先级问题。
+\item 负责 Cluster Manager 选主与集群生命周期管理，通过异步消息队列和模块解耦将集群从 128 扩展至 256 节点；主导自动化测试与安全加固，解决 20+ 生产高优先级问题。
 \end{itemize}
 
-\newpage
-{\fontsize{16}{21}\selectfont\bfseries 段冰}\hspace{8pt}Reese\hfill AI Infra / 大模型推理系统\par
 \cvsection{独立项目}
-独立开展推理运行时、状态复用系统和推理控制面的设计与实现。\par
-\project{SGLang Rust Runtime}{2026.05 - 至今}{\href{https://github.com/imReese/sglang-rs}{github.com/imReese/sglang-rs}}{Rust / gRPC / CUDA}
+\compactproject{SGLang-rs · Rust 轻量级推理引擎}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item \lead{批次调度}按未缓存 token 数控制 Prefill 批次规模，支持页对齐的前缀复用；P/D 分离模式下，Decode 等待 KV 就绪后执行，异步 Prefill 的缓存页在传输完成后才对外可用。
-\item \lead{统一物理 KV 页}CUDA 执行与 Mooncake 注册共用同一 page-major KV pool，通过 RAII 管理注册和设备内存，确保先注销再释放；失败时回收尚未对外提供的缓存页，请求取消时同步取消相关传输。
-\item \lead{执行后端}实现 Qwen2/3 共享 dense decoder、F32 CPU 参考与 BF16 CUDA 执行路径，接入 cuBLAS GEMM 与 GQA paged attention。
+\item 使用 Rust 实现轻量级 LLM 推理引擎，串联模型加载、调度、Prefill/Decode 与前缀缓存复用，提供兼容 OpenAI 的 HTTP 接口。支持 macOS/Linux CPU 本地运行，在 Linux 验证 Qwen2.5-0.5B-Instruct 真实模型推理；接入 CUDA 执行与 Mooncake KV 传输，支持 P/D 分离。
 \end{itemize}
-\vspace{5pt}
-\project{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{\href{https://github.com/imReese/NexusKV}{github.com/imReese/NexusKV}}{Go / Rust / Python}
+\vspace{2pt}
+\compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
 \begin{itemize}
-\item \lead{复用条件与边界}设计跨引擎复用层，校验租户、模型版本与数据布局，评估复用范围、传输成本和引擎使用条件，并记录依据；复用判断与存储传输解耦，由引擎负责内存分配并决定是否使用缓存。
-\item \lead{索引与适配}用 Rust 实现前缀索引和部分复用计划，以写时复制处理并发更新；通过 Host DRAM 存储及引擎适配接口协调状态传输、使用与释放。
+\item 设计跨引擎复用层，校验租户、模型版本与数据布局，评估复用范围及传输成本；将复用判断与传输解耦，由引擎决定内存分配与缓存使用。以 Rust 前缀索引和写时复制处理并发更新。
 \end{itemize}
-\vspace{5pt}
-\project{Locus · 状态感知的推理控制面}{}{\href{https://github.com/imReese/Locus}{github.com/imReese/Locus}}{Rust / Axum}
+\vspace{2pt}
+\compactproject{Locus · 状态感知的推理控制面}{}{https://github.com/imReese/Locus}{Rust / Axum}
 \begin{itemize}
-\item \lead{计算与缓存协同调度}设计跨实例推理控制面，按模型语义和引擎能力筛选可用实例，再结合租户策略、实例负载与缓存位置选择执行目标，将状态复用机会纳入调度决策。
-\item \lead{规划与执行分离}将实例选择与资源预留、状态导入、引擎调用分开；执行前重新校验，失败时按预定范围回退并清理资源，批次调度仍由引擎负责。
+\item 设计跨实例控制面，结合模型语义、引擎能力、租户策略、负载与缓存位置选择实例；将规划与资源预留、状态导入、引擎执行分离，执行前校验，失败时按预定范围回退并清理资源。
 \end{itemize}
-
-\cvsection{架构设计建议}
-向 SGLang 提出缓存数据面与 Scheduler 分离的 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}），讨论元数据所有权、GPU 内存 IPC 与生命周期；另建议将共享缓存传输类型迁到中立模块并兼容导出（\href{https://github.com/sgl-project/sglang/issues/38889}{\#38889}）。
+\lead{架构设计建议}向 SGLang 提出缓存数据面与 Scheduler 解耦 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}），另提出共享缓存传输类型的模块边界调整建议（\href{https://github.com/sgl-project/sglang/issues/38889}{\#38889}）。
 
 \cvsection{技术技能}
-\lead{编程语言}C/C++、Python、Go、Rust、Shell\par
-\lead{性能与系统}Linux、perf、Intel Pin、ChampSim、gdb、Paxos\par
-\lead{工程工具}Docker、Kubernetes、Prometheus、Grafana、Git、CMake
+\lead{推理系统}熟悉 SGLang、vLLM、DeepInfer，了解 Mooncake Store。\par
+\lead{编程与工程}C/C++、Python、Go、Rust、Shell；Linux、Docker、Kubernetes、Git、CMake。
 
 \cvsection{教育背景}
-\textbf{南京大学}\hfill 2017.09 - 2021.06\par
-环境工程 · 学士\hfill GPA 4.2/5.0
+{\rmfamily\bfseries 南京大学}\quad 环境工程 · 学士\quad GPA 4.2/5.0\hfill{\rmfamily\fontsize{10}{14}\selectfont 2017.09 - 2021.06}
 \end{document}
