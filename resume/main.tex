@@ -80,9 +80,9 @@
 \end{itemize}
 
 \cvsection{独立项目}
-\compactproject{SGLang-rs · Rust 推理运行时原型}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
+\compactproject{SGLang-rs · Rust 推理引擎}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item 分离调度与执行，串联模型加载、前缀缓存和 \mbox{Prefill/Decode}；在 Linux 跑通 \mbox{Qwen2.5-0.5B-Instruct} CPU 推理。适配 Qwen3.5 混合注意力文本模型，通过 CPU 合成权重测试；以 Qwen3 CPU 参考测试验证 P/D 数值一致性与 KV 损坏检测。实现 CUDA/Mooncake P/D 接入，GPU 链路待验收。
+\item 分离调度、执行与路由，提供 OpenAI 兼容 API 与 gRPC 服务；在 macOS CPU 跑通完整 \mbox{Qwen3.5-0.8B} 预训练模型，验证对话与逐 Token 流式响应。以 Qwen3 CPU 参考测试验证 P/D 数值一致性与 KV 损坏检测；实现 CUDA/Mooncake 接入，GPU 与网络 P/D 待验收。
 \end{itemize}
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
