@@ -82,12 +82,12 @@
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
 \begin{itemize}
-\item 设计跨引擎复用层，校验租户、模型版本与数据布局，评估复用范围及传输成本；将复用判断与传输解耦，由引擎决定内存分配与缓存使用。以 Rust 前缀索引和写时复制处理并发更新。
+\item 实现 Rust 前缀索引与部分复用规划，通过 PyO3 接入 Python；构建有容量限制的 Host DRAM 存储，并通过租户隔离、LRU 淘汰及连接器回退测试。
 \end{itemize}
 \vspace{2pt}
 \compactproject{Locus · 状态感知的推理控制面}{2026.08 - 至今}{https://github.com/imReese/Locus}{Rust / Axum}
 \begin{itemize}
-\item 设计跨实例控制面，结合模型语义、引擎能力、租户策略、负载与缓存位置选择实例；将规划与资源预留、状态导入、引擎执行分离，执行前校验，失败时按预定范围回退并清理资源。
+\item 实现跨实例规划与执行分离，按模型能力、负载与缓存位置选择实例，支持失败回退和资源释放；提供 OpenAI/Anthropic 接口，通过官方 SDK 在本地模拟后端上验证流式响应与取消。
 \end{itemize}
 \lead{架构设计建议}向 SGLang 提出缓存数据面与 Scheduler 解耦 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}），另提出共享缓存传输类型的模块边界调整建议（\href{https://github.com/sgl-project/sglang/issues/38889}{\#38889}）。
 
