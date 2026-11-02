@@ -54,45 +54,45 @@
 
 \cvsection{工作经历}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
-面向百度智能云千帆 MaaS 多模型在线推理服务，负责 Attention Store 与 SGLang 的研发、性能优化及生产工程化。
+负责百度智能云千帆 MaaS 平台 Attention Store 与 SGLang 的研发、性能优化及工程化，支撑多模型在线推理服务。
 \par\vspace{3pt}
 {\rmfamily\bfseries Attention Store（AS）}\par
 \begin{itemize}[topsep=2pt]
-\item 完善全局缓存索引构建与同步、分层命中查询及预读接口，支撑 cache-aware 调度与缓存复用。
-\item 完成 AS 缓存与 SGLang 引擎侧统一 radix 树的合并迁移，完善读写与前缀复用，实际业务流量下缓存命中率达 90\%+；实现 PP 跨 Agent 缓存协同，覆盖缓存组生命周期、共同可读前缀、状态检查点、读取租约与失败回滚。
+\item 完善全局缓存索引的构建与同步、分层命中查询和预读接口，支持缓存感知调度与复用。
+\item 完成 AS 缓存与 SGLang 统一 radix 树的合并迁移，完善缓存读写和前缀复用，实际业务流量下缓存命中率达 90\%+；实现 PP 跨 Agent 缓存协同，支持缓存组生命周期管理、共同可读前缀、状态检查点、读取租约及失败回滚。
 \end{itemize}
 \vspace{2pt}
 {\rmfamily\bfseries SGLang}\par
 \begin{itemize}[topsep=2pt]
-\item \lead{模型工程化与执行优化}完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；优化 Prefill 状态跟踪与执行计划，复用跨层元数据，减少主机与设备同步及重复分配。
-\item \lead{调度与资源管理}在 Mamba 准入阶段按实际缺口预留状态与缓冲区，缓存回载后复核容量；完善 PP 请求取消、调度重放、KV 传输完成与资源回收的协同时序。
+\item \lead{模型工程化与执行优化}完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；优化 Prefill 阶段的状态跟踪与执行计划，跨层复用元数据，减少主机与设备间的同步及重复分配。
+\item \lead{调度与资源管理}在 Mamba 请求准入时，按实际缺口预留状态槽位与缓冲区，缓存回载后再次检查容量；协调 PP 请求取消、调度重放、KV 传输完成与资源回收的执行顺序。
 \end{itemize}
 \vspace{3pt}
 \role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
 \begin{itemize}
-\item 面向 MySQL、Redis 等云负载，基于 perf、Intel Pin 构建指令流分析工具；在 ChampSim 中实现并验证 TLB 动态调度策略，仿真 IPC 提升 6\%，已申请发明专利。
-\item 分析指令级并行度，协同海思、openEuler 验证新一代鲲鹏 SMT 优化策略，单核吞吐量提升 8\%。
+\item 面向 MySQL、Redis 等云负载，基于 perf、Intel Pin 构建指令流分析工具；在 ChampSim 中实现并验证 TLB 动态调度策略，仿真中 IPC 提升 6\%，已申请发明专利。
+\item 分析指令级并行度，与海思、openEuler 协作验证新一代鲲鹏 SMT 优化策略，单核吞吐量提升 8\%。
 \end{itemize}
 \vspace{3pt}
 \role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
 \begin{itemize}
-\item 负责分布式存储控制面 Cluster Manager，覆盖基于 Paxos 的 CM 自身选主与客户端选主、DPC 客户端管理及集群生命周期；以异步消息队列重构组件间通信、解耦模块。
+\item 负责分布式存储控制面 Cluster Manager 的研发，包括基于 Paxos 的 CM 自身选主与客户端选主、DPC 客户端管理及集群生命周期管理；通过异步消息队列重构组件通信，降低模块耦合。
 \end{itemize}
 
 \cvsection{独立项目}
 \compactproject{SGLang-rs · Rust 推理引擎}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item 分离调度、执行与路由，提供 OpenAI 兼容 API 与 gRPC 服务；在 macOS 与 Ubuntu Linux 的 CPU 环境跑通完整 \mbox{Qwen3.5-0.8B} 模型，验证对话与逐 Token 流式响应。以 Qwen3 CPU 参考测试验证 P/D 数值一致性与 KV 损坏检测；实现 CUDA/Mooncake 接入，GPU 与网络 P/D 待验收。
+\item 解耦调度、执行与路由，兼容 OpenAI API 并提供 gRPC 服务；在 macOS、Ubuntu Linux 上验证 \mbox{Qwen3.5-0.8B} 完整模型的 CPU 推理，支持对话和流式输出。通过 Qwen3 CPU 参考测试验证 P/D 数值一致性及 KV 损坏检测；已接入 CUDA/Mooncake，GPU 推理与 P/D 网络传输尚待验证。
 \end{itemize}
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
 \begin{itemize}
-\item 分离复用判定与传输执行，以 Rust 实现最长前缀匹配，划分可复用与待计算范围；经 PyO3 接入 Python，配套有界 Host DRAM 存储，通过身份隔离、容量淘汰与能力不足回退测试。
+\item 解耦复用判断与数据传输，用 Rust 实现最长前缀匹配，确定可复用与待计算部分；经 PyO3 提供 Python 接口，主机内存存储设有容量上限，通过身份隔离、缓存淘汰及后端不支持时的回退测试。
 \end{itemize}
 \vspace{2pt}
 \compactproject{Locus · 状态感知的推理控制面}{2026.08 - 至今}{https://github.com/imReese/Locus}{Rust / Axum}
 \begin{itemize}
-\item 面向跨实例放置与执行控制，按模型能力、负载和状态位置规划目标；分离规划与执行，执行前重校验，管理资源预留、回退与取消清理；通过 OpenAI/Anthropic 官方 SDK 和本地模拟后端验证流式响应与断连后的取消传播。
+\item 根据模型能力、实例负载和可复用状态的位置选择执行实例，将调度规划与执行解耦；执行前重新校验计划，处理资源预留、回退及取消后的清理；通过 OpenAI/Anthropic 官方 SDK 和本地模拟后端，验证流式输出和客户端断连后取消请求的传递。
 \end{itemize}
 \lead{开源讨论}向 SGLang 提出 HiCache 数据面与调度器解耦 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}）。
 
