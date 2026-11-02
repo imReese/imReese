@@ -54,12 +54,11 @@
 
 \cvsection{工作经历}
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
-负责百度智能云千帆 MaaS 推理引擎研发与性能优化，以及 SGLang 生产部署与工程化。
+负责百度千帆 MaaS 的 SGLang 推理引擎研发，重点承担缓存存储与复用、PP 调度协同及资源生命周期管理，并开展多模型部署验证与性能分析。
 \begin{itemize}
-\item \lead{缓存整合与复用}完成 Attention Store（AS）与统一 radix 树的合并迁移，优化缓存读写与前缀复用；实际业务流量下缓存命中率达 90\%+。
-\item \lead{流水线缓存协同}实现 PP 缓存组注册与生命周期管理，协调跨 Agent 共同可读前缀及状态检查点，处理读取租约与失败回滚。
-\item \lead{调度与资源正确性}修复 PP 请求取消与调度重放不一致，调整 KV 传输完成判断与资源回收时序；按实际缺口预留 Mamba 状态与缓冲区，缓存回载后复核容量。
-\item \lead{性能分析与部署}完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；对照定长压测与真实流量，分析请求长度、执行后端与缓存复用带来的性能差异。
+\item \lead{缓存存储与分布式复用}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，完善缓存读写与前缀复用；实际业务流量下缓存命中率达 90\%+。实现 PP 跨 Agent 缓存协同，覆盖缓存组生命周期、共同可读前缀及状态检查点，通过读取租约与失败回滚管理缓存访问。
+\item \lead{调度与资源生命周期}完善 PP 请求状态与资源释放的协同，协调请求取消、调度重放、KV 传输完成及资源回收时序；在 Mamba 请求准入阶段按实际缺口预留状态与缓冲区，缓存回载后复核容量。
+\item \lead{模型工程化与性能分析}完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；结合定长压测与真实业务流量，分析请求长度、执行后端与缓存复用对推理性能的影响。
 \end{itemize}
 \vspace{3pt}
 \role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
@@ -77,17 +76,17 @@
 \cvsection{独立项目}
 \compactproject{SGLang-rs · Rust 推理运行时原型}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item 使用 Rust 实现推理运行时，分离调度与执行，串联模型加载、Prefill/Decode 与前缀缓存；在 Linux 跑通 \mbox{Qwen2.5-0.5B-Instruct} CPU 推理。实现 CUDA/Mooncake P/D 接入，GPU 链路待验收。
+\item 面向单引擎推理，分离调度决策与模型执行，串联模型加载、前缀缓存和 \mbox{Prefill/Decode}；在 Linux 跑通 \mbox{Qwen2.5-0.5B-Instruct} CPU 推理。实现 CUDA/Mooncake P/D 接入，GPU 链路待验收。
 \end{itemize}
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
 \begin{itemize}
-\item 面向跨引擎状态复用，将复用判断与传输执行分离；实现 Rust 最长前缀匹配与部分复用规划，经 PyO3 接入 Python，配套有界 Host DRAM 存储；测试覆盖身份隔离、容量淘汰及能力不足回退。
+\item 面向跨引擎状态复用，将复用判定与传输执行分离；Rust 实现最长前缀匹配及部分复用规划，经 PyO3 接入 Python，配套有界 Host DRAM 存储；测试覆盖身份隔离、容量淘汰与能力不足回退。
 \end{itemize}
 \vspace{2pt}
 \compactproject{Locus · 状态感知的推理控制面}{2026.08 - 至今}{https://github.com/imReese/Locus}{Rust / Axum}
 \begin{itemize}
-\item 将跨实例放置规划与执行分离，按模型能力、负载和状态位置选择目标；执行前重校验，处理资源预留、回退与取消清理；通过官方 SDK 与本地模拟后端验证流式响应和取消传播。
+\item 面向跨实例放置与执行控制，按模型能力、负载和状态位置规划目标；分离规划与执行，执行前重校验，管理资源预留、回退与取消清理；通过官方 SDK 与本地模拟后端验证流式响应和取消传播。
 \end{itemize}
 \lead{开源讨论}向 SGLang 提出 HiCache 数据面与调度器解耦 RFC（\href{https://github.com/sgl-project/sglang/issues/37372}{\#37372}）。
 
