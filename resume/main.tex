@@ -71,7 +71,9 @@
 \vspace{3pt}
 \role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
 \begin{itemize}
-\item 负责分布式存储控制面 Cluster Manager，覆盖 DPC 客户端管理、Paxos 选主及集群生命周期管理；重构组件通信模型，以异步消息队列解耦模块，支持集群从 128 扩展至 256 节点。
+% Product-scale context, not a personally measured expansion result:
+% https://blog.huawei.com/2022/01/07/exabyte-scale-out-storage-huawei-oceanstor-pacific/
+\item 负责分布式存储控制面 Cluster Manager，覆盖 DPC 客户端管理、Paxos 选主与集群生命周期；以异步消息队列重构组件通信、解耦模块。OceanStor Pacific 公开规格：最多 4096 个存储节点。
 \item 通过模块间参数校验与输入过滤防护命令注入；定位并解决 20+ 生产高优先级问题。
 \end{itemize}
 
