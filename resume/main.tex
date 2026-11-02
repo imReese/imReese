@@ -82,7 +82,7 @@
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
 \begin{itemize}
-\item 实现 Rust 前缀索引与部分复用规划，通过 PyO3 接入 Python；构建有容量限制的 Host DRAM 存储，并通过租户隔离、LRU 淘汰及连接器回退测试。
+\item 面向跨引擎状态复用，将复用判断与传输后端解耦；实现 Rust 前缀索引与部分复用规划，经 PyO3 接入 Python，提供有界 Host DRAM 存储；通过租户隔离、LRU 淘汰和连接器回退测试。
 \end{itemize}
 \vspace{2pt}
 \compactproject{Locus · 状态感知的推理控制面}{2026.08 - 至今}{https://github.com/imReese/Locus}{Rust / Axum}
