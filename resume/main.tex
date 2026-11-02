@@ -31,10 +31,9 @@
 \pagestyle{empty}
 \hyphenation{Mooncake}
 \raggedbottom
-\setlist[itemize]{leftmargin=1.05em,label={\rmfamily\textbullet},itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\setlist[itemize]{leftmargin=1.05em,label={\rmfamily\textbullet},itemsep=2pt,topsep=2pt,parsep=0pt,partopsep=0pt}
 \newcommand{\cvsection}[1]{\par\vspace{7pt}{\rmfamily\fontsize{11.5}{15}\selectfont\bfseries #1}\par\vspace{2pt}\hrule height 0.3pt\vspace{4pt}}
 \newcommand{\role}[3]{{\rmfamily\bfseries #1}\hfill{\rmfamily\fontsize{10}{14}\selectfont #2}\par{#3}\par}
-\newcommand{\priorrole}[3]{{\rmfamily\bfseries #1}\quad{\fontsize{10}{14}\selectfont #3}\hfill{\rmfamily\fontsize{10}{14}\selectfont #2}\par}
 \newcommand{\compactproject}[4]{{\rmfamily\bfseries\href{#3}{#1}}\quad{\fontsize{9.5}{12}\selectfont #4}\hfill{\rmfamily\fontsize{9.5}{12}\selectfont #2}\par}
 \newcommand{\lead}[1]{{\rmfamily\bfseries #1}：}
 \begin{document}
@@ -64,12 +63,12 @@
 \item \lead{传输与计算重叠}将主机侧 KV cache 操作、H2D/D2H 传输与 GPU 批次执行组织为异步流程，结合 Mooncake TransferEngine 分析并优化 KV 传输路径。
 \end{itemize}
 \vspace{3pt}
-\priorrole{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
+\role{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
 \begin{itemize}
 \item 基于 perf、Intel Pin 构建云负载指令流分析工具，用 ChampSim 验证微架构方案，IPC 提升 6\%，已申请发明专利；与海思、openEuler 协作验证鲲鹏 CPU 优化方案，单核吞吐量提升 8\%。
 \end{itemize}
 \vspace{3pt}
-\priorrole{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
+\role{华为数据存储产品线 · 基础设施开发部}{2022.05 - 2023.07}{软件开发工程师}
 \begin{itemize}
 \item 负责 Cluster Manager 选主与集群生命周期管理，通过异步消息队列和模块解耦将集群从 128 扩展至 256 节点；主导自动化测试与安全加固，解决 20+ 生产高优先级问题。
 \end{itemize}
