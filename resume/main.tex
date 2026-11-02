@@ -57,11 +57,11 @@
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
 负责百度智能云千帆 MaaS 推理引擎研发与性能优化，以及 SGLang 生产部署与工程化。
 \begin{itemize}
+\item \lead{状态管理}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成面向多模型、多并行部署的缓存存储子系统，解决多并行、多模态场景中的稳定性问题。
+\item \lead{缓存复用}优化 AS 读写与前缀复用，实际业务流量下缓存命中率达 90\%+，提升 Prefill 吞吐；团队方案支持流水线并行下的 L3 存储接入。
 \item \lead{多模型与并行部署}完成模型引擎适配与精度验证，开展 TP、多 DP、PP、DCP 等并行配置下的部署；完善可观测性接口，定位并解决并行部署中的稳定性问题。
 \item \lead{运行时性能分析}针对定长压测与真实流量的性能差异，分析请求长度、执行后端选择和缓存复用收益；承担 Prefill/EPD 与约束解码相关优化。
 \item \lead{传输与计算重叠}将主机侧 KV cache 操作、H2D/D2H 传输与 GPU 批次执行组织为异步流程，结合 Mooncake TransferEngine 分析并优化 KV 传输路径。
-\item \lead{状态管理}完成 Attention Store（AS）缓存与统一 radix 树的合并迁移，建成面向多模型、多并行部署的缓存存储子系统，解决多并行、多模态场景中的稳定性问题。
-\item \lead{缓存复用}优化 AS 读写与前缀复用，实际业务流量下缓存命中率达 90\%+，提升 Prefill 吞吐；团队方案支持流水线并行下的 L3 存储接入。
 \end{itemize}
 \vspace{3pt}
 \priorrole{华为云 · 竖亥实验室}{2023.07 - 2024.07}{计算机体系结构研究工程师}
@@ -77,7 +77,7 @@
 \cvsection{独立项目}
 \compactproject{SGLang-rs · Rust 轻量级推理引擎}{2026.05 - 至今}{https://github.com/imReese/sglang-rs}{Rust / gRPC / CUDA}
 \begin{itemize}
-\item 使用 Rust 实现轻量级 LLM 推理引擎，串联模型加载、调度、Prefill/Decode 与前缀缓存复用，提供兼容 OpenAI 的 HTTP 接口。支持 macOS/Linux CPU 本地运行，在 Linux 验证 Qwen2.5-0.5B-Instruct 真实模型推理；接入 CUDA 执行与 Mooncake KV 传输，支持 P/D 分离。
+\item 使用 Rust 实现轻量级 LLM 推理引擎，串联模型加载、调度、Prefill/Decode 与前缀缓存复用，提供兼容 OpenAI 的 HTTP 接口。支持 macOS/Linux CPU 本地运行，在 Linux 验证 \mbox{Qwen2.5-0.5B-Instruct} 真实模型推理；接入 CUDA 执行与 Mooncake KV 传输，支持 P/D 分离。
 \end{itemize}
 \vspace{2pt}
 \compactproject{NexusKV · 跨引擎状态复用}{2025.04 - 至今}{https://github.com/imReese/NexusKV}{Go / Rust / Python}
@@ -85,7 +85,7 @@
 \item 设计跨引擎复用层，校验租户、模型版本与数据布局，评估复用范围及传输成本；将复用判断与传输解耦，由引擎决定内存分配与缓存使用。以 Rust 前缀索引和写时复制处理并发更新。
 \end{itemize}
 \vspace{2pt}
-\compactproject{Locus · 状态感知的推理控制面}{}{https://github.com/imReese/Locus}{Rust / Axum}
+\compactproject{Locus · 状态感知的推理控制面}{2026.08 - 至今}{https://github.com/imReese/Locus}{Rust / Axum}
 \begin{itemize}
 \item 设计跨实例控制面，结合模型语义、引擎能力、租户策略、负载与缓存位置选择实例；将规划与资源预留、状态导入、引擎执行分离，执行前校验，失败时按预定范围回退并清理资源。
 \end{itemize}
