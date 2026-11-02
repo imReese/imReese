@@ -56,13 +56,13 @@
 \role{百度 · AI 计算 / 训推引擎组}{2025.06 - 至今}{软件工程师（大模型推理引擎）}
 面向百度智能云千帆 MaaS 多模型在线推理服务，负责 Attention Store 与 SGLang 的研发、性能优化及生产工程化。
 \par\vspace{3pt}
-{\rmfamily\bfseries Attention Store（AS）· 企业级 KV Store 系统}\par
+{\rmfamily\bfseries Attention Store（AS）}\par
 \begin{itemize}[topsep=2pt]
 \item 完善全局缓存索引构建与同步、分层命中查询及预读接口，支撑 cache-aware 调度与缓存复用。
 \item 完成 AS 缓存与 SGLang 引擎侧统一 radix 树的合并迁移，完善读写与前缀复用，实际业务流量下缓存命中率达 90\%+；实现 PP 跨 Agent 缓存协同，覆盖缓存组生命周期、共同可读前缀、状态检查点、读取租约与失败回滚。
 \end{itemize}
 \vspace{2pt}
-{\rmfamily\bfseries SGLang · 企业级推理引擎}\par
+{\rmfamily\bfseries SGLang}\par
 \begin{itemize}[topsep=2pt]
 \item \lead{模型工程化与执行优化}完成多模型适配、精度验证及 TP、多 DP、PP、DCP 部署；优化 Prefill 状态跟踪与执行计划，复用跨层元数据，减少主机与设备同步及重复分配。
 \item \lead{调度与资源管理}在 Mamba 准入阶段按实际缺口预留状态与缓冲区，缓存回载后复核容量；完善 PP 请求取消、调度重放、KV 传输完成与资源回收的协同时序。
